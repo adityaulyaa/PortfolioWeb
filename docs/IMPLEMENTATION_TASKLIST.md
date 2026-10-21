@@ -75,241 +75,241 @@ Sebelum UC-01 dapat diimplementasikan, dependency berikut harus tersedia:
 
 ### Persiapan Project Next.js
 
-- [ ] Buat project Next.js menggunakan App Router, TypeScript, dan Tailwind CSS.
-- [ ] Verifikasi project dapat dijalankan pada mode development.
-- [ ] Buat struktur direktori sesuai PRD_PORTFOLIO.md Bab 7.
-- [ ] Pasang dependency Motion untuk animasi UI.
-- [ ] Pastikan versi seluruh dependency tercatat pada package.json.
+- [x] Buat project Next.js menggunakan App Router, TypeScript, dan Tailwind CSS.
+- [x] Verifikasi project dapat dijalankan pada mode development.
+- [x] Buat struktur direktori sesuai PRD_PORTFOLIO.md Bab 7.
+- [x] Pasang dependency Motion untuk animasi UI.
+- [x] Pastikan versi seluruh dependency tercatat pada package.json.
 
 ### Persiapan Database PostgreSQL
 
-- [ ] Buat database PostgreSQL dengan nama sesuai kebutuhan project (misal: portfolio_db).
-- [ ] Verifikasi koneksi ke database berhasil.
+- [x] Buat database PostgreSQL dengan nama sesuai kebutuhan project (misal: portfolio_db).
+- [x] Verifikasi koneksi ke database berhasil.
 
 ### Konfigurasi Prisma dan Environment
 
-- [ ] Inisialisasi Prisma pada project dengan provider postgresql.
-- [ ] Simpan DATABASE_URL pada file .env.
-- [ ] Pastikan .env masuk ke .gitignore dan tidak pernah di-commit.
-- [ ] Buat file .env.example yang berisi nama variabel tanpa nilai rahasia.
-- [ ] Buat lib/prisma.ts berisi Prisma Client singleton agar tidak terbentuk banyak koneksi pada mode development.
+- [x] Inisialisasi Prisma pada project dengan provider postgresql.
+- [x] Simpan DATABASE_URL pada file .env.
+- [x] Pastikan .env masuk ke .gitignore dan tidak pernah di-commit.
+- [x] Buat file .env.example yang berisi nama variabel tanpa nilai rahasia.
+- [x] Buat lib/prisma.ts berisi Prisma Client singleton agar tidak terbentuk banyak koneksi pada mode development.
 
 ### Pembuatan Model Profile
 
-- [ ] Tambahkan model Profile pada prisma/schema.prisma sesuai Database Design di PRD_PORTFOLIO.md Bab 9.
-- [ ] Tambahkan field: id (Int, Primary Key, single row), fullName, headline, shortIntro, aboutText (Text), location (nullable), photoUrl, email (nullable), githubUrl (nullable), linkedinUrl (nullable).
-- [ ] Jalankan Prisma migration untuk membuat table Profile.
-- [ ] Verifikasi model sesuai dengan Database Design pada PRD_PORTFOLIO.md Bab 9.
+- [x] Tambahkan model Profile pada prisma/schema.prisma sesuai Database Design di PRD_PORTFOLIO.md Bab 9.
+- [x] Tambahkan field: id (Int, Primary Key, single row), fullName, headline, shortIntro, aboutText (Text), location (nullable), photoUrl, email (nullable), githubUrl (nullable), linkedinUrl (nullable).
+- [x] Jalankan Prisma migration untuk membuat table Profile.
+- [x] Verifikasi model sesuai dengan Database Design pada PRD_PORTFOLIO.md Bab 9.
 
 ### Pembuatan Seed Script dan Seed Data Profile
 
-- [ ] Buat prisma/seed.ts sebagai entry point seed dan daftarkan perintah seed pada konfigurasi Prisma/package.json.
-- [ ] Buat prisma/seed-data/profile.ts berisi data Profile milik owner (seluruh field, termasuk aboutText dan photoUrl).
-- [ ] Implementasi seed Profile menggunakan upsert dengan id tetap agar table hanya berisi satu row dan seed idempotent.
-- [ ] Tambahkan validasi pada seed: fullName, headline, dan shortIntro tidak boleh kosong.
-- [ ] Tambahkan validasi pada seed: githubUrl dan linkedinUrl, jika diisi, harus berupa absolute URL (https).
-- [ ] Jalankan seed dan verifikasi tepat satu row Profile tersimpan.
-- [ ] Jalankan seed dua kali dan verifikasi tidak terjadi duplikasi data.
+- [x] Buat prisma/seed.ts sebagai entry point seed dan daftarkan perintah seed pada konfigurasi Prisma/package.json.
+- [x] Buat prisma/seed-data/profile.ts berisi data Profile milik owner (seluruh field, termasuk aboutText dan photoUrl).
+- [x] Implementasi seed Profile menggunakan upsert dengan id tetap agar table hanya berisi satu row dan seed idempotent.
+- [x] Tambahkan validasi pada seed: fullName, headline, dan shortIntro tidak boleh kosong.
+- [x] Tambahkan validasi pada seed: githubUrl dan linkedinUrl, jika diisi, harus berupa absolute URL (https).
+- [x] Jalankan seed dan verifikasi tepat satu row Profile tersimpan.
+- [x] Jalankan seed dua kali dan verifikasi tidak terjadi duplikasi data.
 
 ### Pembuatan Shared Library Backend
 
-- [ ] Buat lib/errors.ts berisi AppError (base class) dan NotFoundError.
-- [ ] Buat lib/api-response.ts berisi helper response sukses dan error dengan format standar: sukses `{ success: true, data }`, error `{ success: false, error: { code, message } }`.
-- [ ] Buat utilitas konversi error ke response: NotFoundError menjadi HTTP 404 (NOT_FOUND), error tak terduga menjadi HTTP 500 (INTERNAL_ERROR) dengan pesan generik.
-- [ ] Pastikan error tak terduga dicatat di server dan tidak membocorkan stack trace atau detail internal ke response.
+- [x] Buat lib/errors.ts berisi AppError (base class) dan NotFoundError.
+- [x] Buat lib/api-response.ts berisi helper response sukses dan error dengan format standar: sukses `{ success: true, data }`, error `{ success: false, error: { code, message } }`.
+- [x] Buat utilitas konversi error ke response: NotFoundError menjadi HTTP 404 (NOT_FOUND), error tak terduga menjadi HTTP 500 (INTERNAL_ERROR) dengan pesan generik.
+- [x] Pastikan error tak terduga dicatat di server dan tidak membocorkan stack trace atau detail internal ke response.
 
 ### Pembuatan DTO
 
-- [ ] Buat ProfileDto pada src/types.
-- [ ] Tambahkan field: fullName, headline, shortIntro, aboutText, location, photoUrl, email, githubUrl, linkedinUrl.
-- [ ] Jangan sertakan field internal (misal: id) pada ProfileDto.
+- [x] Buat ProfileDto pada src/types.
+- [x] Tambahkan field: fullName, headline, shortIntro, aboutText, location, photoUrl, email, githubUrl, linkedinUrl.
+- [x] Jangan sertakan field internal (misal: id) pada ProfileDto.
 
 ### Pembuatan Mapper
 
-- [ ] Buat ProfileMapper pada src/mappers.
-- [ ] Buat method toProfileDto(profile) untuk convert entity Prisma ke ProfileDto.
+- [x] Buat ProfileMapper pada src/mappers.
+- [x] Buat method toProfileDto(profile) untuk convert entity Prisma ke ProfileDto.
 
 ### Pembuatan Repository
 
-- [ ] Buat ProfileRepository pada src/repositories.
-- [ ] Implementasi method untuk membaca satu row Profile menggunakan Prisma.
-- [ ] Pastikan repository tidak berisi business logic.
+- [x] Buat ProfileRepository pada src/repositories.
+- [x] Implementasi method untuk membaca satu row Profile menggunakan Prisma.
+- [x] Pastikan repository tidak berisi business logic.
 
 ### Pembuatan Service
 
-- [ ] Buat ProfileService pada src/services.
-- [ ] Implementasi method getProfile().
-- [ ] Panggil ProfileRepository dan convert hasil menggunakan ProfileMapper.
-- [ ] Lempar NotFoundError jika data Profile tidak ditemukan.
-- [ ] Return ProfileDto.
+- [x] Buat ProfileService pada src/services.
+- [x] Implementasi method getProfile().
+- [x] Panggil ProfileRepository dan convert hasil menggunakan ProfileMapper.
+- [x] Lempar NotFoundError jika data Profile tidak ditemukan.
+- [x] Return ProfileDto.
 
 ### Pembuatan Route Handler
 
-- [ ] Buat src/app/api/profile/route.ts.
-- [ ] Export hanya handler GET.
-- [ ] Panggil ProfileService.getProfile().
-- [ ] Return HTTP 200 dengan format response sukses standar.
-- [ ] Tangani error melalui utilitas konversi error.
-- [ ] Verifikasi method selain GET menghasilkan HTTP 405.
+- [x] Buat src/app/api/profile/route.ts.
+- [x] Export hanya handler GET.
+- [x] Panggil ProfileService.getProfile().
+- [x] Return HTTP 200 dengan format response sukses standar.
+- [x] Tangani error melalui utilitas konversi error.
+- [x] Verifikasi method selain GET menghasilkan HTTP 405.
 
 ### Exception Handling
 
-- [ ] Pastikan NotFoundError menghasilkan HTTP 404 dengan code NOT_FOUND.
-- [ ] Pastikan error database dan error tak terduga menghasilkan HTTP 500 dengan code INTERNAL_ERROR dan pesan generik.
-- [ ] Pastikan kegagalan database pada layout (Navbar dan Footer) tidak menyebabkan crash aplikasi.
+- [x] Pastikan NotFoundError menghasilkan HTTP 404 dengan code NOT_FOUND.
+- [x] Pastikan error database dan error tak terduga menghasilkan HTTP 500 dengan code INTERNAL_ERROR dan pesan generik.
+- [x] Pastikan kegagalan database pada layout (Navbar dan Footer) tidak menyebabkan crash aplikasi.
 
 ### Frontend Root Layout dan Metadata
 
-- [ ] Konfigurasi src/app/layout.tsx sebagai root layout berisi Navbar, konten halaman, dan Footer.
-- [ ] Atur bahasa dokumen menjadi English dan tambahkan metadata title default.
-- [ ] Tambahkan viewport dan pengaturan dasar agar layout responsive (mobile-first).
-- [ ] Bersihkan style bawaan template Next.js pada globals.css dan sesuaikan dengan visual design yang telah diputuskan.
+- [x] Konfigurasi src/app/layout.tsx sebagai root layout berisi Navbar, konten halaman, dan Footer.
+- [x] Atur bahasa dokumen menjadi English dan tambahkan metadata title default.
+- [x] Tambahkan viewport dan pengaturan dasar agar layout responsive (mobile-first).
+- [x] Bersihkan style bawaan template Next.js pada globals.css dan sesuaikan dengan visual design yang telah diputuskan.
 
 ### Frontend Reveal Component
 
-- [ ] Buat Reveal.tsx pada src/components/ui sebagai wrapper animasi (Client Component) menggunakan Motion.
-- [ ] Dukung animasi entrance saat load dan reveal saat scroll.
-- [ ] Gunakan hanya properti transform dan opacity.
-- [ ] Hormati prefers-reduced-motion: tidak ada animasi jika visitor memilih reduced motion.
-- [ ] Pastikan animasi tidak menyembunyikan konten secara permanen dan tidak menghalangi akses konten.
+- [x] Buat Reveal.tsx pada src/components/ui sebagai wrapper animasi (Client Component) menggunakan Motion.
+- [x] Dukung animasi entrance saat load dan reveal saat scroll.
+- [x] Gunakan hanya properti transform dan opacity.
+- [x] Hormati prefers-reduced-motion: tidak ada animasi jika visitor memilih reduced motion.
+- [x] Pastikan animasi tidak menyembunyikan konten secara permanen dan tidak menghalangi akses konten.
 
 ### Frontend Navbar
 
-- [ ] Buat Navbar.tsx pada src/components/layout.
-- [ ] Tampilkan nama owner (fullName dari Profile).
-- [ ] Tambahkan link ke section About, Skills, Projects, Experience, dan Education menggunakan anchor `/#about`, `/#skills`, `/#projects`, `/#experience`, `/#education`.
-- [ ] Pastikan anchor link berfungsi dari halaman manapun (menuju Home).
-- [ ] Buat Navbar tetap dapat diakses saat halaman di-scroll.
-- [ ] Implementasi mobile menu untuk layar kecil menggunakan local state (open/closed).
-- [ ] Pastikan touch target cukup besar untuk penggunaan mobile.
-- [ ] Siapkan ruang pada Navbar untuk theme toggle (akan diimplementasikan pada UC-08).
+- [x] Buat Navbar.tsx pada src/components/layout.
+- [x] Tampilkan nama owner (fullName dari Profile).
+- [x] Tambahkan link ke section About, Skills, Projects, Experience, dan Education menggunakan anchor `/#about`, `/#skills`, `/#projects`, `/#experience`, `/#education`.
+- [x] Pastikan anchor link berfungsi dari halaman manapun (menuju Home).
+- [x] Buat Navbar tetap dapat diakses saat halaman di-scroll.
+- [x] Implementasi mobile menu untuk layar kecil menggunakan local state (open/closed).
+- [x] Pastikan touch target cukup besar untuk penggunaan mobile.
+- [x] Siapkan ruang pada Navbar untuk theme toggle (akan diimplementasikan pada UC-08).
 
 ### Frontend Footer
 
-- [ ] Buat Footer.tsx pada src/components/layout.
-- [ ] Tampilkan social links (GitHub, LinkedIn, Email) hanya jika memiliki nilai.
-- [ ] Tampilkan teks copyright.
-- [ ] Link GitHub dan LinkedIn dibuka pada tab baru dengan rel="noopener noreferrer".
-- [ ] Link Email menggunakan skema mailto:.
+- [x] Buat Footer.tsx pada src/components/layout.
+- [x] Tampilkan social links (GitHub, LinkedIn, Email) hanya jika memiliki nilai.
+- [x] Tampilkan teks copyright.
+- [x] Link GitHub dan LinkedIn dibuka pada tab baru dengan rel="noopener noreferrer".
+- [x] Link Email menggunakan skema mailto:.
 
 ### Frontend ErrorState dan Error Page
 
-- [ ] Buat ErrorState.tsx pada src/components/ui untuk menampilkan pesan error yang jelas.
-- [ ] Buat src/app/error.tsx sebagai error page untuk error tak terduga dengan opsi retry atau kembali ke Home.
-- [ ] Pastikan pesan error tidak menampilkan detail internal.
+- [x] Buat ErrorState.tsx pada src/components/ui untuk menampilkan pesan error yang jelas.
+- [x] Buat src/app/error.tsx sebagai error page untuk error tak terduga dengan opsi retry atau kembali ke Home.
+- [x] Pastikan pesan error tidak menampilkan detail internal.
 
 ### Frontend Hero Component
 
-- [ ] Buat Hero.tsx pada src/components/sections sebagai Server Component yang memanggil ProfileService.getProfile().
-- [ ] Tampilkan fullName, headline, dan shortIntro.
-- [ ] Tampilkan social links (GitHub, LinkedIn, Email) hanya yang memiliki nilai.
-- [ ] Link GitHub dan LinkedIn dibuka pada tab baru dengan rel="noopener noreferrer".
-- [ ] Link Email menggunakan skema mailto:.
-- [ ] Terapkan animasi entrance Hero menggunakan Reveal.
-- [ ] Jika data Profile tidak ditemukan, tampilkan ErrorState sebagai pengganti Hero kosong.
-- [ ] Pastikan Hero terbaca dengan baik di mobile, tablet, dan desktop.
+- [x] Buat Hero.tsx pada src/components/sections sebagai Server Component yang memanggil ProfileService.getProfile().
+- [x] Tampilkan fullName, headline, dan shortIntro.
+- [x] Tampilkan social links (GitHub, LinkedIn, Email) hanya yang memiliki nilai.
+- [x] Link GitHub dan LinkedIn dibuka pada tab baru dengan rel="noopener noreferrer".
+- [x] Link Email menggunakan skema mailto:.
+- [x] Terapkan animasi entrance Hero menggunakan Reveal.
+- [x] Jika data Profile tidak ditemukan, tampilkan ErrorState sebagai pengganti Hero kosong.
+- [x] Pastikan Hero terbaca dengan baik di mobile, tablet, dan desktop.
 
 ### Frontend Home Page
 
-- [ ] Buat src/app/page.tsx sebagai halaman Home (route `/`).
-- [ ] Tampilkan Hero sebagai section pertama.
-- [ ] Tambahkan generateMetadata pada halaman Home agar page title deskriptif (berbasis fullName dan headline Profile).
-- [ ] Siapkan struktur halaman agar section berikutnya dapat ditambahkan sesuai urutan: Hero, About, Skills, Projects, Experience, Education.
+- [x] Buat src/app/page.tsx sebagai halaman Home (route `/`).
+- [x] Tampilkan Hero sebagai section pertama.
+- [x] Tambahkan generateMetadata pada halaman Home agar page title deskriptif (berbasis fullName dan headline Profile).
+- [x] Siapkan struktur halaman agar section berikutnya dapat ditambahkan sesuai urutan: Hero, About, Skills, Projects, Experience, Education.
 
 ### Testing Backend
 
-- [ ] Test endpoint GET /api/profile menggunakan Postman, curl, atau browser.
-- [ ] Test response HTTP 200 dengan format `{ success: true, data }` dan seluruh field ProfileDto.
-- [ ] Test response tidak memuat field internal.
-- [ ] Test method POST, PUT, PATCH, DELETE ke /api/profile: return HTTP 405.
-- [ ] Test dengan table Profile kosong: return HTTP 404 dengan format error standar.
-- [ ] Test dengan database tidak tersedia: return HTTP 500 dengan pesan generik tanpa detail internal.
-- [ ] Test seed dijalankan berulang kali tidak menghasilkan duplikasi.
+- [x] Test endpoint GET /api/profile menggunakan Postman, curl, atau browser.
+- [x] Test response HTTP 200 dengan format `{ success: true, data }` dan seluruh field ProfileDto.
+- [x] Test response tidak memuat field internal.
+- [x] Test method POST, PUT, PATCH, DELETE ke /api/profile: return HTTP 405.
+- [x] Test dengan table Profile kosong: return HTTP 404 dengan format error standar.
+- [x] Test dengan database tidak tersedia: return HTTP 500 dengan pesan generik tanpa detail internal.
+- [x] Test seed dijalankan berulang kali tidak menghasilkan duplikasi.
 
 ### Testing Frontend
 
-- [ ] Test halaman Home dapat diakses pada route `/`.
-- [ ] Test Hero menampilkan fullName, headline, dan shortIntro dengan benar.
-- [ ] Test social links hanya tampil jika memiliki nilai.
-- [ ] Test link eksternal terbuka pada tab baru.
-- [ ] Test Navbar dan Footer tampil dengan benar.
-- [ ] Test mobile menu berfungsi pada layar kecil.
-- [ ] Test animasi entrance berjalan dan tidak berjalan saat prefers-reduced-motion aktif.
-- [ ] Test Profile kosong menampilkan ErrorState, bukan halaman rusak.
-- [ ] Test tidak ada horizontal scroll pada mobile, tablet, dan desktop.
+- [x] Test halaman Home dapat diakses pada route `/`.
+- [x] Test Hero menampilkan fullName, headline, dan shortIntro dengan benar.
+- [x] Test social links hanya tampil jika memiliki nilai.
+- [x] Test link eksternal terbuka pada tab baru.
+- [x] Test Navbar dan Footer tampil dengan benar.
+- [x] Test mobile menu berfungsi pada layar kecil.
+- [x] Test animasi entrance berjalan dan tidak berjalan saat prefers-reduced-motion aktif.
+- [x] Test Profile kosong menampilkan ErrorState, bukan halaman rusak.
+- [x] Test tidak ada horizontal scroll pada mobile, tablet, dan desktop.
 
 ---
 
 ## Database Tasks
 
-- [ ] Buat database PostgreSQL untuk project.
-- [ ] Konfigurasi Prisma dan DATABASE_URL.
-- [ ] Buat model Profile dengan field sesuai Database Design.
-- [ ] Jalankan migration dan verifikasi table Profile ter-create dengan field yang benar.
-- [ ] Buat seed script dan seed data Profile.
-- [ ] Verifikasi seed idempotent dan table Profile hanya berisi satu row.
+- [x] Buat database PostgreSQL untuk project.
+- [x] Konfigurasi Prisma dan DATABASE_URL.
+- [x] Buat model Profile dengan field sesuai Database Design.
+- [x] Jalankan migration dan verifikasi table Profile ter-create dengan field yang benar.
+- [x] Buat seed script dan seed data Profile.
+- [x] Verifikasi seed idempotent dan table Profile hanya berisi satu row.
 
 ---
 
 ## Backend Tasks
 
-- [ ] Buat struktur direktori sesuai PRD_PORTFOLIO.md.
-- [ ] Implementasi lib/prisma.ts, lib/errors.ts, dan lib/api-response.ts.
-- [ ] Implementasi ProfileDto.
-- [ ] Implementasi ProfileMapper.
-- [ ] Implementasi ProfileRepository.
-- [ ] Implementasi ProfileService dengan method getProfile.
-- [ ] Implementasi Route Handler GET /api/profile.
-- [ ] Implementasi penanganan error sesuai tabel error PRD Bab 10.12 (NOT_FOUND dan INTERNAL_ERROR).
-- [ ] Buat .env.example dan pastikan .env tidak di-commit.
+- [x] Buat struktur direktori sesuai PRD_PORTFOLIO.md.
+- [x] Implementasi lib/prisma.ts, lib/errors.ts, dan lib/api-response.ts.
+- [x] Implementasi ProfileDto.
+- [x] Implementasi ProfileMapper.
+- [x] Implementasi ProfileRepository.
+- [x] Implementasi ProfileService dengan method getProfile.
+- [x] Implementasi Route Handler GET /api/profile.
+- [x] Implementasi penanganan error sesuai tabel error PRD Bab 10.12 (NOT_FOUND dan INTERNAL_ERROR).
+- [x] Buat .env.example dan pastikan .env tidak di-commit.
 
 ---
 
 ## API Tasks
 
-- [ ] Implementasi endpoint GET /api/profile.
-- [ ] Endpoint tidak memerlukan autentikasi.
-- [ ] Endpoint tidak menerima request body maupun query parameter.
-- [ ] Endpoint return HTTP 200 dengan ProfileDto jika berhasil.
-- [ ] Endpoint return HTTP 404 jika data Profile tidak ditemukan.
-- [ ] Endpoint return HTTP 405 untuk method selain GET.
-- [ ] Endpoint return HTTP 500 jika system error.
-- [ ] Response menggunakan format standar dan dates (jika ada) menggunakan ISO 8601.
+- [x] Implementasi endpoint GET /api/profile.
+- [x] Endpoint tidak memerlukan autentikasi.
+- [x] Endpoint tidak menerima request body maupun query parameter.
+- [x] Endpoint return HTTP 200 dengan ProfileDto jika berhasil.
+- [x] Endpoint return HTTP 404 jika data Profile tidak ditemukan.
+- [x] Endpoint return HTTP 405 untuk method selain GET.
+- [x] Endpoint return HTTP 500 jika system error.
+- [x] Response menggunakan format standar dan dates (jika ada) menggunakan ISO 8601.
 
 ---
 
 ## Frontend Tasks
 
-- [ ] Setup Next.js project dengan dependencies yang diperlukan.
-- [ ] Buat struktur direktori sesuai PRD_PORTFOLIO.md.
-- [ ] Implementasi root layout dan metadata.
-- [ ] Implementasi Reveal component.
-- [ ] Implementasi Navbar dengan anchor links dan mobile menu.
-- [ ] Implementasi Footer.
-- [ ] Implementasi ErrorState dan error.tsx.
-- [ ] Implementasi Hero section.
-- [ ] Implementasi halaman Home (page.tsx) beserta generateMetadata.
-- [ ] Implementasi tampilan responsive (mobile-first).
+- [x] Setup Next.js project dengan dependencies yang diperlukan.
+- [x] Buat struktur direktori sesuai PRD_PORTFOLIO.md.
+- [x] Implementasi root layout dan metadata.
+- [x] Implementasi Reveal component.
+- [x] Implementasi Navbar dengan anchor links dan mobile menu.
+- [x] Implementasi Footer.
+- [x] Implementasi ErrorState dan error.tsx.
+- [x] Implementasi Hero section.
+- [x] Implementasi halaman Home (page.tsx) beserta generateMetadata.
+- [x] Implementasi tampilan responsive (mobile-first).
 
 ---
 
 ## Business Rules
 
-- [ ] Hero selalu menjadi section pertama pada Home.
-- [ ] Hanya social links yang memiliki nilai yang ditampilkan.
-- [ ] Link Email menggunakan skema mailto:.
-- [ ] Link GitHub dan LinkedIn dibuka pada tab baru dengan rel="noopener noreferrer".
-- [ ] Tabel Profile hanya berisi satu row.
-- [ ] Konten hanya berasal dari seed data; tidak ada operasi tulis dari aplikasi.
+- [x] Hero selalu menjadi section pertama pada Home.
+- [x] Hanya social links yang memiliki nilai yang ditampilkan.
+- [x] Link Email menggunakan skema mailto:.
+- [x] Link GitHub dan LinkedIn dibuka pada tab baru dengan rel="noopener noreferrer".
+- [x] Tabel Profile hanya berisi satu row.
+- [x] Konten hanya berasal dari seed data; tidak ada operasi tulis dari aplikasi.
 
 ---
 
 ## Validation Rules
 
-- [ ] Full name tidak boleh kosong pada seed data.
-- [ ] Headline tidak boleh kosong pada seed data.
-- [ ] Short introduction tidak boleh kosong pada seed data.
-- [ ] Social URL (GitHub, LinkedIn), jika diisi, harus berupa absolute URL (https).
+- [x] Full name tidak boleh kosong pada seed data.
+- [x] Headline tidak boleh kosong pada seed data.
+- [x] Short introduction tidak boleh kosong pada seed data.
+- [x] Social URL (GitHub, LinkedIn), jika diisi, harus berupa absolute URL (https).
 
 ---
 
@@ -317,12 +317,12 @@ Sebelum UC-01 dapat diimplementasikan, dependency berikut harus tersedia:
 
 Saat mengerjakan UC-01 View Hero Section, implementasi yang boleh dilakukan:
 
-- [ ] Setup project Next.js, PostgreSQL, Prisma, dan struktur direktori.
-- [ ] Pembuatan model Profile, seed script, dan seed data Profile.
-- [ ] Pembuatan shared library backend (prisma, errors, api-response).
-- [ ] Implementasi ProfileService, ProfileRepository, ProfileMapper, ProfileDto, dan endpoint GET /api/profile.
-- [ ] Pembuatan Root Layout, Navbar (tanpa theme toggle), Footer, Reveal, ErrorState, dan error.tsx.
-- [ ] Implementasi Hero section dan halaman Home.
+- [x] Setup project Next.js, PostgreSQL, Prisma, dan struktur direktori.
+- [x] Pembuatan model Profile, seed script, dan seed data Profile.
+- [x] Pembuatan shared library backend (prisma, errors, api-response).
+- [x] Implementasi ProfileService, ProfileRepository, ProfileMapper, ProfileDto, dan endpoint GET /api/profile.
+- [x] Pembuatan Root Layout, Navbar (tanpa theme toggle), Footer, Reveal, ErrorState, dan error.tsx.
+- [x] Implementasi Hero section dan halaman Home.
 
 Implementasi yang TIDAK BOLEH dilakukan pada UC-01:
 
@@ -339,14 +339,14 @@ Fokus hanya pada kebutuhan UC-01 View Hero Section dan dependency langsungnya.
 
 ## Acceptance Criteria
 
-- [ ] Hero menampilkan name, headline, dan short introduction.
-- [ ] Social links hanya ditampilkan jika tersedia.
-- [ ] Link eksternal dibuka pada tab baru.
-- [ ] Hero terbaca dengan baik di mobile, tablet, dan desktop.
-- [ ] Data Profile yang hilang menghasilkan pesan error, bukan halaman rusak.
-- [ ] Endpoint GET /api/profile berfungsi sesuai API Specification.
-- [ ] Seed Profile idempotent dan tabel Profile hanya berisi satu row.
-- [ ] Animasi hormat terhadap prefers-reduced-motion.
+- [x] Hero menampilkan name, headline, dan short introduction.
+- [x] Social links hanya ditampilkan jika tersedia.
+- [x] Link eksternal dibuka pada tab baru.
+- [x] Hero terbaca dengan baik di mobile, tablet, dan desktop.
+- [x] Data Profile yang hilang menghasilkan pesan error, bukan halaman rusak.
+- [x] Endpoint GET /api/profile berfungsi sesuai API Specification.
+- [x] Seed Profile idempotent dan tabel Profile hanya berisi satu row.
+- [x] Animasi hormat terhadap prefers-reduced-motion.
 
 ---
 
@@ -354,26 +354,26 @@ Fokus hanya pada kebutuhan UC-01 View Hero Section dan dependency langsungnya.
 
 ### Positive Case
 
-- [ ] Hero menampilkan data Profile dengan benar.
-- [ ] Social links tampil sesuai data yang tersedia.
-- [ ] Response GET /api/profile return HTTP 200 dengan ProfileDto.
-- [ ] Navbar dan Footer tampil pada halaman Home.
+- [x] Hero menampilkan data Profile dengan benar.
+- [x] Social links tampil sesuai data yang tersedia.
+- [x] Response GET /api/profile return HTTP 200 dengan ProfileDto.
+- [x] Navbar dan Footer tampil pada halaman Home.
 
 ### Negative Case
 
-- [ ] Profile kosong menampilkan ErrorState pada halaman dan HTTP 404 pada API.
-- [ ] Method selain GET ke /api/profile return HTTP 405.
-- [ ] Social link tanpa nilai tidak ditampilkan.
+- [x] Profile kosong menampilkan ErrorState pada halaman dan HTTP 404 pada API.
+- [x] Method selain GET ke /api/profile return HTTP 405.
+- [x] Social link tanpa nilai tidak ditampilkan.
 
 ### Validation Case
 
-- [ ] Seed dengan fullName, headline, atau shortIntro kosong ditolak.
-- [ ] Seed dengan URL sosial tidak valid ditolak.
+- [x] Seed dengan fullName, headline, atau shortIntro kosong ditolak.
+- [x] Seed dengan URL sosial tidak valid ditolak.
 
 ### Error Case
 
-- [ ] Database connection error di-handle dengan baik (error page atau ErrorState).
-- [ ] Unexpected error return HTTP 500 dengan pesan generik.
+- [x] Database connection error di-handle dengan baik (error page atau ErrorState).
+- [x] Unexpected error return HTTP 500 dengan pesan generik.
 
 ---
 
@@ -381,13 +381,13 @@ Fokus hanya pada kebutuhan UC-01 View Hero Section dan dependency langsungnya.
 
 Setelah UC-01 View Hero Section selesai, kondisi project adalah:
 
-- [ ] Project Next.js telah dibuat dengan struktur direktori sesuai PRD_PORTFOLIO.md.
-- [ ] Database PostgreSQL telah dibuat dan Prisma telah dikonfigurasi.
-- [ ] Table Profile telah dibuat dan berisi satu row dari seed.
-- [ ] Endpoint GET /api/profile telah berfungsi dan teruji.
-- [ ] Root layout, Navbar, Footer, Reveal, ErrorState, dan error.tsx telah berfungsi.
-- [ ] Hero section dan halaman Home telah berfungsi dan teruji.
-- [ ] Project siap untuk implementasi UC-02 View About Section.
+- [x] Project Next.js telah dibuat dengan struktur direktori sesuai PRD_PORTFOLIO.md.
+- [x] Database PostgreSQL telah dibuat dan Prisma telah dikonfigurasi.
+- [x] Table Profile telah dibuat dan berisi satu row dari seed.
+- [x] Endpoint GET /api/profile telah berfungsi dan teruji.
+- [x] Root layout, Navbar, Footer, Reveal, ErrorState, dan error.tsx telah berfungsi.
+- [x] Hero section dan halaman Home telah berfungsi dan teruji.
+- [x] Project siap untuk implementasi UC-02 View About Section.
 
 ---
 
