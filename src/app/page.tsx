@@ -1,8 +1,22 @@
+import type { Metadata } from "next";
+import { Hero } from "@/components/sections/Hero";
+import { ProfileService } from "@/services/profile-service";
+
+export async function generateMetadata(): Promise<Metadata> {
+  try {
+    const profile = await ProfileService.getProfile();
+    return {
+      title: `${profile.fullName} | ${profile.headline}`,
+      description: profile.shortIntro,
+    };
+  } catch {
+    return {
+      title: "Portfolio",
+      description: "Personal portfolio website",
+    };
+  }
+}
+
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">Portfolio Web App</h1>
-      <p className="mt-4 text-lg text-gray-600">Setup Complete - Ready for Development</p>
-    </main>
-  );
+  return <main><Hero /></main>;
 }
