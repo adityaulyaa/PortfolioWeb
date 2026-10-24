@@ -452,7 +452,7 @@ UC-02 View About Section bergantung pada:
 ### Frontend Home Page Update
 
 - [x] Tambahkan About sebagai section kedua setelah Hero pada page.tsx.
-- [ ] Verifikasi klik link About pada Navbar menggulir ke section About.
+- [x] Verifikasi klik link About pada Navbar menggulir ke section About.
 
 ### Testing Backend
 

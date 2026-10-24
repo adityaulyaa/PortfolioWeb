@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
+import { Skills } from "@/components/sections/Skills";
 import { ProfileService } from "@/services/profile-service";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -23,6 +24,7 @@ export default function Home() {
     <main>
       <Hero />
       <About />
+      <Skills />
     </main>
   );
 }

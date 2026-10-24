@@ -9,3 +9,16 @@ export interface ProfileDto {
   githubUrl: string | null;
   linkedinUrl: string | null;
 }
+
+export interface SkillCategoryDto {
+  id: number;
+  name: string;
+  displayOrder: number;
+}
+
+export interface SkillDto {
+  id: number;
+  name: string;
+  displayOrder: number;
+  categoryName: string;
+}

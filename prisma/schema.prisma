@@ -19,3 +19,20 @@ model Profile {
   githubUrl   String?
   linkedinUrl String?
 }
+
+model SkillCategory {
+  id           Int      @id @default(autoincrement())
+  name         String   @unique
+  displayOrder Int
+  skills       Skill[]
+}
+
+model Skill {
+  id             Int            @id @default(autoincrement())
+  name           String
+  categoryId     Int
+  displayOrder   Int
+  category       SkillCategory  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([categoryId, name])
+}
