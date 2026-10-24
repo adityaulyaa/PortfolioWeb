@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
 import { ProfileService } from "@/services/profile-service";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -18,5 +19,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Home() {
-  return <main><Hero /></main>;
+  return (
+    <main>
+      <Hero />
+      <About />
+    </main>
+  );
 }

@@ -428,30 +428,30 @@ UC-02 View About Section bergantung pada:
 
 ### Persiapan Foto Profil
 
-- [ ] Simpan file foto profil pada public/images/profile.
-- [ ] Pastikan photoUrl pada seed data Profile menunjuk ke file yang benar-benar ada di public/.
-- [ ] Jalankan ulang seed jika data seed diperbarui.
+- [x] Simpan file foto profil pada public/images/profile.
+- [x] Pastikan photoUrl pada seed data Profile menunjuk ke file yang benar-benar ada di public/.
+- [x] Jalankan ulang seed jika data seed diperbarui.
 
 ### Frontend SectionHeading Component
 
-- [ ] Buat SectionHeading.tsx pada src/components/ui untuk judul section yang konsisten.
-- [ ] Komponen akan digunakan ulang oleh seluruh section berikutnya.
+- [x] Buat SectionHeading.tsx pada src/components/ui untuk judul section yang konsisten.
+- [x] Komponen akan digunakan ulang oleh seluruh section berikutnya.
 
 ### Frontend About Component
 
-- [ ] Buat About.tsx pada src/components/sections sebagai Server Component yang memanggil ProfileService.getProfile().
-- [ ] Beri id="about" pada section agar anchor `/#about` berfungsi.
-- [ ] Tampilkan foto profil menggunakan komponen image Next.js dengan alt text berbasis nama owner.
-- [ ] Tentukan ukuran gambar agar tidak terjadi layout shift.
-- [ ] Tampilkan aboutText sebagai plain text dengan paragraf yang dipisahkan baris kosong tetap terjaga (misal: whitespace-pre-line).
-- [ ] Tampilkan location hanya jika memiliki nilai.
-- [ ] Bungkus section dengan Reveal untuk animasi scroll reveal.
-- [ ] Jika data Profile tidak ditemukan, tampilkan ErrorState.
-- [ ] Pastikan layout responsive di mobile, tablet, dan desktop.
+- [x] Buat About.tsx pada src/components/sections sebagai Server Component yang memanggil ProfileService.getProfile().
+- [x] Beri id="about" pada section agar anchor `/#about` berfungsi.
+- [x] Tampilkan foto profil menggunakan komponen image Next.js dengan alt text berbasis nama owner.
+- [x] Tentukan ukuran gambar agar tidak terjadi layout shift.
+- [x] Tampilkan aboutText sebagai plain text dengan paragraf yang dipisahkan baris kosong tetap terjaga (misal: whitespace-pre-line).
+- [x] Tampilkan location hanya jika memiliki nilai.
+- [x] Bungkus section dengan Reveal untuk animasi scroll reveal.
+- [x] Jika data Profile tidak ditemukan, tampilkan ErrorState.
+- [x] Pastikan layout responsive di mobile, tablet, dan desktop.
 
 ### Frontend Home Page Update
 
-- [ ] Tambahkan About sebagai section kedua setelah Hero pada page.tsx.
+- [x] Tambahkan About sebagai section kedua setelah Hero pada page.tsx.
 - [ ] Verifikasi klik link About pada Navbar menggulir ke section About.
 
 ### Testing Backend
