@@ -624,145 +624,145 @@ UC-03 View Skills bergantung pada:
 
 ### Pembuatan Seed Data Skills
 
-- [ ] Buat prisma/seed-data/skills.ts berisi kategori (misal: Frontend, Backend, Database, Tools) beserta skill pada masing-masing kategori, lengkap dengan displayOrder.
-- [ ] Update prisma/seed.ts untuk menjalankan seed skills.
-- [ ] Gunakan upsert berdasarkan name untuk SkillCategory dan berdasarkan (categoryId, name) untuk Skill agar seed idempotent.
-- [ ] Tambahkan validasi pada seed: nama skill tidak boleh kosong dan unik dalam satu kategori.
-- [ ] Jalankan seed dan verifikasi data tersimpan tanpa duplikasi.
+- [x] Buat prisma/seed-data/skills.ts berisi kategori (misal: Frontend, Backend, Database, Tools) beserta skill pada masing-masing kategori, lengkap dengan displayOrder.
+- [x] Update prisma/seed.ts untuk menjalankan seed skills.
+- [x] Gunakan upsert berdasarkan name untuk SkillCategory dan berdasarkan (categoryId, name) untuk Skill agar seed idempotent.
+- [x] Tambahkan validasi pada seed: nama skill tidak boleh kosong dan unik dalam satu kategori.
+- [x] Jalankan seed dan verifikasi data tersimpan tanpa duplikasi.
 
 ### Pembuatan DTO
 
-- [ ] Buat SkillCategoryDto pada src/types.
-- [ ] Tambahkan field: id, name, skills (array berisi id dan name).
-- [ ] Jangan sertakan displayOrder dan foreign key pada DTO.
+- [x] Buat SkillCategoryDto pada src/types.
+- [x] Tambahkan field: id, name, skills (array berisi id dan name).
+- [x] Jangan sertakan displayOrder dan foreign key pada DTO.
 
 ### Pembuatan Mapper
 
-- [ ] Buat SkillMapper pada src/mappers.
-- [ ] Buat method untuk convert SkillCategory beserta Skill ke SkillCategoryDto.
+- [x] Buat SkillMapper pada src/mappers.
+- [x] Buat method untuk convert SkillCategory beserta Skill ke SkillCategoryDto.
 
 ### Pembuatan Repository
 
-- [ ] Buat SkillCategoryRepository pada src/repositories.
-- [ ] Implementasi method untuk membaca seluruh kategori beserta skill-nya menggunakan Prisma.
+- [x] Buat SkillCategoryRepository pada src/repositories.
+- [x] Implementasi method untuk membaca seluruh kategori beserta skill-nya menggunakan Prisma.
 
 ### Pembuatan Service
 
-- [ ] Buat SkillService pada src/services.
-- [ ] Implementasi method getSkillsGroupedByCategory().
-- [ ] Urutkan kategori berdasarkan displayOrder ascending.
-- [ ] Urutkan skill di dalam kategori berdasarkan displayOrder ascending.
-- [ ] Jangan sertakan kategori yang tidak memiliki skill.
-- [ ] Convert hasil menggunakan SkillMapper dan return array SkillCategoryDto.
+- [x] Buat SkillService pada src/services.
+- [x] Implementasi method getSkillsGroupedByCategory().
+- [x] Urutkan kategori berdasarkan displayOrder ascending.
+- [x] Urutkan skill di dalam kategori berdasarkan displayOrder ascending.
+- [x] Jangan sertakan kategori yang tidak memiliki skill.
+- [x] Convert hasil menggunakan SkillMapper dan return array SkillCategoryDto.
 
 ### Pembuatan Route Handler
 
-- [ ] Buat src/app/api/skills/route.ts dengan handler GET saja.
-- [ ] Panggil SkillService.getSkillsGroupedByCategory().
-- [ ] Return HTTP 200 dengan format response sukses standar (data berupa array).
-- [ ] Return array kosong dengan HTTP 200 jika tidak ada data.
-- [ ] Tangani error melalui utilitas konversi error dari UC-01.
-- [ ] Verifikasi method selain GET menghasilkan HTTP 405.
+- [x] Buat src/app/api/skills/route.ts dengan handler GET saja.
+- [x] Panggil SkillService.getSkillsGroupedByCategory().
+- [x] Return HTTP 200 dengan format response sukses standar (data berupa array).
+- [x] Return array kosong dengan HTTP 200 jika tidak ada data.
+- [x] Tangani error melalui utilitas konversi error dari UC-01.
+- [x] Verifikasi method selain GET menghasilkan HTTP 405.
 
 ### Frontend EmptyState dan Tag Component
 
-- [ ] Buat EmptyState.tsx pada src/components/ui untuk menampilkan pesan data kosong yang jelas.
-- [ ] Buat Tag.tsx pada src/components/ui untuk menampilkan label (digunakan untuk skill dan tech stack).
+- [x] Buat EmptyState.tsx pada src/components/ui untuk menampilkan pesan data kosong yang jelas.
+- [x] Buat Tag.tsx pada src/components/ui untuk menampilkan label (digunakan untuk skill dan tech stack).
 
 ### Frontend Skills Component
 
-- [ ] Buat Skills.tsx pada src/components/sections sebagai Server Component yang memanggil SkillService.
-- [ ] Beri id="skills" pada section agar anchor `/#skills` berfungsi.
-- [ ] Gunakan SectionHeading untuk judul section.
-- [ ] Tampilkan setiap kategori beserta skill-nya menggunakan Tag.
-- [ ] Jangan tampilkan level atau persentase kemampuan.
-- [ ] Tampilkan EmptyState jika tidak ada skill.
-- [ ] Bungkus dengan Reveal untuk animasi scroll reveal.
-- [ ] Pastikan layout responsive di mobile, tablet, dan desktop.
+- [x] Buat Skills.tsx pada src/components/sections sebagai Server Component yang memanggil SkillService.
+- [x] Beri id="skills" pada section agar anchor `/#skills` berfungsi.
+- [x] Gunakan SectionHeading untuk judul section.
+- [x] Tampilkan setiap kategori beserta skill-nya menggunakan Tag.
+- [x] Jangan tampilkan level atau persentase kemampuan.
+- [x] Tampilkan EmptyState jika tidak ada skill.
+- [x] Bungkus dengan Reveal untuk animasi scroll reveal.
+- [x] Pastikan layout responsive di mobile, tablet, dan desktop.
 
 ### Frontend Home Page Update
 
-- [ ] Tambahkan Skills sebagai section ketiga setelah About pada page.tsx.
-- [ ] Verifikasi link Skills pada Navbar menggulir ke section Skills.
+- [x] Tambahkan Skills sebagai section ketiga setelah About pada page.tsx.
+- [x] Verifikasi link Skills pada Navbar menggulir ke section Skills.
 
 ### Testing Backend
 
-- [ ] Test endpoint GET /api/skills: return HTTP 200 dengan array kategori beserta skill.
-- [ ] Test urutan kategori dan skill sesuai displayOrder.
-- [ ] Test kategori tanpa skill tidak muncul pada response.
-- [ ] Test dengan table kosong: return HTTP 200 dengan array kosong.
-- [ ] Test method selain GET: return HTTP 405.
-- [ ] Test dengan database tidak tersedia: return HTTP 500 dengan pesan generik.
-- [ ] Test seed berulang tidak menghasilkan duplikasi.
+- [x] Test endpoint GET /api/skills: return HTTP 200 dengan array kategori beserta skill.
+- [x] Test urutan kategori dan skill sesuai displayOrder.
+- [x] Test kategori tanpa skill tidak muncul pada response.
+- [x] Test dengan table kosong: return HTTP 200 dengan array kosong.
+- [x] Test method selain GET: return HTTP 405.
+- [x] Test dengan database tidak tersedia: return HTTP 500 dengan pesan generik.
+- [x] Test seed berulang tidak menghasilkan duplikasi.
 
 ### Testing Frontend
 
-- [ ] Test Skills section menampilkan kategori dan skill dengan benar.
-- [ ] Test urutan tampilan sesuai displayOrder.
-- [ ] Test EmptyState tampil jika tidak ada skill.
-- [ ] Test tidak ada level atau persentase yang ditampilkan.
-- [ ] Test link Skills pada Navbar menggulir ke section yang benar.
-- [ ] Test UI responsive di berbagai ukuran layar.
+- [x] Test Skills section menampilkan kategori dan skill dengan benar.
+- [x] Test urutan tampilan sesuai displayOrder.
+- [x] Test EmptyState tampil jika tidak ada skill.
+- [x] Test tidak ada level atau persentase yang ditampilkan.
+- [x] Test link Skills pada Navbar menggulir ke section yang benar.
+- [x] Test UI responsive di berbagai ukuran layar.
 
 ---
 
 ## Database Tasks
 
-- [ ] Buat model SkillCategory dan Skill dengan field sesuai Database Design.
-- [ ] Verifikasi table SkillCategory dan Skill ter-create dengan benar.
-- [ ] Verifikasi unique constraint name pada SkillCategory dan (categoryId, name) pada Skill berfungsi.
-- [ ] Verifikasi relasi SkillCategory ke Skill berfungsi.
-- [ ] Insert seed data skills dan verifikasi dapat di-query dengan benar.
+- [x] Buat model SkillCategory dan Skill dengan field sesuai Database Design.
+- [x] Verifikasi table SkillCategory dan Skill ter-create dengan benar.
+- [x] Verifikasi unique constraint name pada SkillCategory dan (categoryId, name) pada Skill berfungsi.
+- [x] Verifikasi relasi SkillCategory ke Skill berfungsi.
+- [x] Insert seed data skills dan verifikasi dapat di-query dengan benar.
 
 ---
 
 ## Backend Tasks
 
-- [ ] Implementasi model SkillCategory dan Skill.
-- [ ] Implementasi SkillCategoryDto.
-- [ ] Implementasi SkillMapper.
-- [ ] Implementasi SkillCategoryRepository.
-- [ ] Implementasi SkillService dengan method getSkillsGroupedByCategory.
-- [ ] Implementasi Route Handler GET /api/skills.
-- [ ] Implementasi seed skills.
+- [x] Implementasi model SkillCategory dan Skill.
+- [x] Implementasi SkillCategoryDto.
+- [x] Implementasi SkillMapper.
+- [x] Implementasi SkillCategoryRepository.
+- [x] Implementasi SkillService dengan method getSkillsGroupedByCategory.
+- [x] Implementasi Route Handler GET /api/skills.
+- [x] Implementasi seed skills.
 
 ---
 
 ## API Tasks
 
-- [ ] Implementasi endpoint GET /api/skills.
-- [ ] Endpoint tidak memerlukan autentikasi.
-- [ ] Endpoint return HTTP 200 dengan array SkillCategoryDto.
-- [ ] Endpoint return array kosong jika tidak ada data.
-- [ ] Endpoint return HTTP 405 untuk method selain GET.
-- [ ] Endpoint return HTTP 500 jika system error.
+- [x] Implementasi endpoint GET /api/skills.
+- [x] Endpoint tidak memerlukan autentikasi.
+- [x] Endpoint return HTTP 200 dengan array SkillCategoryDto.
+- [x] Endpoint return array kosong jika tidak ada data.
+- [x] Endpoint return HTTP 405 untuk method selain GET.
+- [x] Endpoint return HTTP 500 jika system error.
 
 ---
 
 ## Frontend Tasks
 
-- [ ] Implementasi EmptyState.tsx dan Tag.tsx.
-- [ ] Implementasi Skills.tsx.
-- [ ] Update halaman Home untuk menambahkan Skills.
-- [ ] Implementasi scroll reveal animation pada Skills.
-- [ ] Implementasi tampilan responsive.
+- [x] Implementasi EmptyState.tsx dan Tag.tsx.
+- [x] Implementasi Skills.tsx.
+- [x] Update halaman Home untuk menambahkan Skills.
+- [x] Implementasi scroll reveal animation pada Skills.
+- [x] Implementasi tampilan responsive.
 
 ---
 
 ## Business Rules
 
-- [ ] Skill ditampilkan dikelompokkan berdasarkan kategori.
-- [ ] Kategori dan skill diurutkan berdasarkan displayOrder ascending.
-- [ ] Skill tidak memiliki level atau persentase.
-- [ ] Kategori tanpa skill tidak ditampilkan.
-- [ ] Nama kategori ditentukan melalui seed data.
+- [x] Skill ditampilkan dikelompokkan berdasarkan kategori.
+- [x] Kategori dan skill diurutkan berdasarkan displayOrder ascending.
+- [x] Skill tidak memiliki level atau persentase.
+- [x] Kategori tanpa skill tidak ditampilkan.
+- [x] Nama kategori ditentukan melalui seed data.
 
 ---
 
 ## Validation Rules
 
-- [ ] Nama skill tidak boleh kosong.
-- [ ] Nama skill harus unik di dalam satu kategori.
+- [x] Nama skill tidak boleh kosong.
+- [x] Nama skill harus unik di dalam satu kategori.
 
 ---
 
@@ -770,11 +770,11 @@ UC-03 View Skills bergantung pada:
 
 Saat mengerjakan UC-03 View Skills, implementasi yang boleh dilakukan:
 
-- [ ] Pembuatan model SkillCategory dan Skill beserta migration.
-- [ ] Pembuatan seed data skills.
-- [ ] Implementasi fitur View Skills (service dan frontend).
-- [ ] Pembuatan Route Handler GET /api/skills.
-- [ ] Pembuatan EmptyState dan Tag component.
+- [x] Pembuatan model SkillCategory dan Skill beserta migration.
+- [x] Pembuatan seed data skills.
+- [x] Implementasi fitur View Skills (service dan frontend).
+- [x] Pembuatan Route Handler GET /api/skills.
+- [x] Pembuatan EmptyState dan Tag component.
 
 Implementasi yang TIDAK BOLEH dilakukan pada UC-03:
 
@@ -788,11 +788,11 @@ Implementasi yang TIDAK BOLEH dilakukan pada UC-03:
 
 ## Acceptance Criteria
 
-- [ ] Skills ditampilkan dikelompokkan per kategori.
-- [ ] Urutan sesuai displayOrder.
-- [ ] Empty state ditampilkan jika tidak ada skill.
-- [ ] Endpoint GET /api/skills berfungsi sesuai API Specification.
-- [ ] Section responsive dan memiliki animasi scroll reveal.
+- [x] Skills ditampilkan dikelompokkan per kategori.
+- [x] Urutan sesuai displayOrder.
+- [x] Empty state ditampilkan jika tidak ada skill.
+- [x] Endpoint GET /api/skills berfungsi sesuai API Specification.
+- [x] Section responsive dan memiliki animasi scroll reveal.
 
 ---
 
@@ -800,25 +800,25 @@ Implementasi yang TIDAK BOLEH dilakukan pada UC-03:
 
 ### Positive Case
 
-- [ ] Skills tampil dikelompokkan per kategori.
-- [ ] Urutan kategori dan skill sesuai displayOrder.
-- [ ] Response GET /api/skills return HTTP 200 dengan array.
+- [x] Skills tampil dikelompokkan per kategori.
+- [x] Urutan kategori dan skill sesuai displayOrder.
+- [x] Response GET /api/skills return HTTP 200 dengan array.
 
 ### Negative Case
 
-- [ ] Data kosong menampilkan EmptyState dan API return array kosong.
-- [ ] Kategori tanpa skill tidak ditampilkan.
-- [ ] Method selain GET return HTTP 405.
+- [x] Data kosong menampilkan EmptyState dan API return array kosong.
+- [x] Kategori tanpa skill tidak ditampilkan.
+- [x] Method selain GET return HTTP 405.
 
 ### Validation Case
 
-- [ ] Seed dengan nama skill kosong ditolak.
-- [ ] Seed dengan skill duplikat dalam satu kategori ditolak.
+- [x] Seed dengan nama skill kosong ditolak.
+- [x] Seed dengan skill duplikat dalam satu kategori ditolak.
 
 ### Error Case
 
-- [ ] Database connection error di-handle dengan baik.
-- [ ] Unexpected error return HTTP 500 dengan pesan generik.
+- [x] Database connection error di-handle dengan baik.
+- [x] Unexpected error return HTTP 500 dengan pesan generik.
 
 ---
 
@@ -826,11 +826,11 @@ Implementasi yang TIDAK BOLEH dilakukan pada UC-03:
 
 Setelah UC-03 View Skills selesai, kondisi project adalah:
 
-- [ ] Table SkillCategory dan Skill telah dibuat dan berisi seed data.
-- [ ] Endpoint GET /api/skills berfungsi dan teruji.
-- [ ] Skills section berfungsi dan teruji pada halaman Home.
-- [ ] EmptyState dan Tag siap digunakan ulang.
-- [ ] Project siap untuk implementasi UC-04 View Experience.
+- [x] Table SkillCategory dan Skill telah dibuat dan berisi seed data.
+- [x] Endpoint GET /api/skills berfungsi dan teruji.
+- [x] Skills section berfungsi dan teruji pada halaman Home.
+- [x] EmptyState dan Tag siap digunakan ulang.
+- [x] Project siap untuk implementasi UC-04 View Experience.
 
 ---
 
