@@ -456,65 +456,65 @@ UC-02 View About Section bergantung pada:
 
 ### Testing Backend
 
-- [ ] Test GET /api/profile tetap return field aboutText, location, dan photoUrl dengan benar.
-- [ ] Test tidak ada endpoint baru yang ditambahkan.
+- [x] Test GET /api/profile tetap return field aboutText, location, dan photoUrl dengan benar.
+- [x] Test tidak ada endpoint baru yang ditambahkan.
 
 ### Testing Frontend
 
-- [ ] Test About section menampilkan foto, teks, dan location.
-- [ ] Test paragraf pada aboutText tetap terpisah.
-- [ ] Test location tidak ditampilkan jika kosong.
-- [ ] Test foto tampil tanpa layout shift.
-- [ ] Test animasi scroll reveal berjalan dan tidak berjalan saat prefers-reduced-motion aktif.
-- [ ] Test link About pada Navbar menggulir ke section yang benar.
-- [ ] Test UI responsive di berbagai ukuran layar.
+- [x] Test About section menampilkan foto, teks, dan location.
+- [x] Test paragraf pada aboutText tetap terpisah.
+- [x] Test location tidak ditampilkan jika kosong.
+- [x] Test foto tampil tanpa layout shift.
+- [x] Test animasi scroll reveal berjalan dan tidak berjalan saat prefers-reduced-motion aktif.
+- [x] Test link About pada Navbar menggulir ke section yang benar.
+- [x] Test UI responsive di berbagai ukuran layar.
 
 ---
 
 ## Database Tasks
 
-- [ ] Tidak ada perubahan skema database.
-- [ ] Verifikasi seed Profile memiliki aboutText dan photoUrl yang valid.
-- [ ] Verifikasi file foto pada photoUrl tersedia di public/.
+- [x] Tidak ada perubahan skema database.
+- [x] Verifikasi seed Profile memiliki aboutText dan photoUrl yang valid.
+- [x] Verifikasi file foto pada photoUrl tersedia di public/.
 
 ---
 
 ## Backend Tasks
 
-- [ ] Tidak ada komponen backend baru; gunakan ProfileService dari UC-01.
+- [x] Tidak ada komponen backend baru; gunakan ProfileService dari UC-01.
 
 ---
 
 ## API Tasks
 
-- [ ] Tidak ada endpoint baru; gunakan GET /api/profile dari UC-01.
-- [ ] Verifikasi endpoint tetap sesuai API Specification.
+- [x] Tidak ada endpoint baru; gunakan GET /api/profile dari UC-01.
+- [x] Verifikasi endpoint tetap sesuai API Specification.
 
 ---
 
 ## Frontend Tasks
 
-- [ ] Implementasi SectionHeading.tsx.
-- [ ] Implementasi About.tsx dengan foto, teks, dan location.
-- [ ] Update halaman Home untuk menambahkan About.
-- [ ] Implementasi scroll reveal animation pada About.
-- [ ] Implementasi tampilan responsive.
+- [x] Implementasi SectionHeading.tsx.
+- [x] Implementasi About.tsx dengan foto, teks, dan location.
+- [x] Update halaman Home untuk menambahkan About.
+- [x] Implementasi scroll reveal animation pada About.
+- [x] Implementasi tampilan responsive.
 
 ---
 
 ## Business Rules
 
-- [ ] About text adalah plain text; paragraf dipisahkan oleh baris kosong.
-- [ ] Location hanya ditampilkan jika memiliki nilai.
-- [ ] Foto menampilkan alt text berbasis nama owner.
-- [ ] Gambar dirender melalui komponen image Next.js.
+- [x] About text adalah plain text; paragraf dipisahkan oleh baris kosong.
+- [x] Location hanya ditampilkan jika memiliki nilai.
+- [x] Foto menampilkan alt text berbasis nama owner.
+- [x] Gambar dirender melalui komponen image Next.js.
 
 ---
 
 ## Validation Rules
 
-- [ ] About text tidak boleh kosong pada seed data.
-- [ ] Path foto harus menunjuk ke file yang ada di public/.
+- [x] About text tidak boleh kosong pada seed data.
+- [x] Path foto harus menunjuk ke file yang ada di public/.
 
 ---
 
@@ -522,28 +522,28 @@ UC-02 View About Section bergantung pada:
 
 Saat mengerjakan UC-02 View About Section, implementasi yang boleh dilakukan:
 
-- [ ] Penyimpanan file foto profil pada public/images/profile.
-- [ ] Pembuatan SectionHeading dan About component.
-- [ ] Penambahan About pada halaman Home.
-- [ ] Penerapan scroll reveal animation pada About.
+- [x] Penyimpanan file foto profil pada public/images/profile.
+- [x] Pembuatan SectionHeading dan About component.
+- [x] Penambahan About pada halaman Home.
+- [x] Penerapan scroll reveal animation pada About.
 
 Implementasi yang TIDAK BOLEH dilakukan pada UC-02:
 
-- [ ] Perubahan skema database atau pembuatan endpoint baru.
-- [ ] Implementasi Skills, Experience, Education, atau Project (UC-03 sampai UC-07).
-- [ ] Implementasi Theme toggle dan dark mode (UC-08).
-- [ ] Implementasi fitur editing konten, upload file, atau CV download.
-- [ ] Implementasi fitur lain yang tidak berhubungan dengan View About Section.
+- [x] Perubahan skema database atau pembuatan endpoint baru.
+- [x] Implementasi Skills, Experience, Education, atau Project (UC-03 sampai UC-07).
+- [x] Implementasi Theme toggle dan dark mode (UC-08).
+- [x] Implementasi fitur editing konten, upload file, atau CV download.
+- [x] Implementasi fitur lain yang tidak berhubungan dengan View About Section.
 
 ---
 
 ## Acceptance Criteria
 
-- [ ] About section menampilkan foto, teks, dan location (jika tersedia).
-- [ ] Paragraf pada teks About tetap terjaga.
-- [ ] Section tampil dengan animasi scroll reveal.
-- [ ] Foto menggunakan alt text dan tidak menyebabkan layout shift.
-- [ ] Section responsive di mobile, tablet, dan desktop.
+- [x] About section menampilkan foto, teks, dan location (jika tersedia).
+- [x] Paragraf pada teks About tetap terjaga.
+- [x] Section tampil dengan animasi scroll reveal.
+- [x] Foto menggunakan alt text dan tidak menyebabkan layout shift.
+- [x] Section responsive di mobile, tablet, dan desktop.
 
 ---
 
@@ -551,19 +551,19 @@ Implementasi yang TIDAK BOLEH dilakukan pada UC-02:
 
 ### Positive Case
 
-- [ ] About menampilkan data Profile dengan benar.
-- [ ] Foto, teks, dan location tampil sesuai seed.
-- [ ] Anchor `/#about` berfungsi.
+- [x] About menampilkan data Profile dengan benar.
+- [x] Foto, teks, dan location tampil sesuai seed.
+- [x] Anchor `/#about` berfungsi.
 
 ### Negative Case
 
-- [ ] Location kosong tidak ditampilkan dan layout tidak rusak.
-- [ ] Profile kosong menampilkan ErrorState.
+- [x] Location kosong tidak ditampilkan dan layout tidak rusak.
+- [x] Profile kosong menampilkan ErrorState.
 
 ### Error Case
 
-- [ ] Database connection error di-handle dengan baik.
-- [ ] Unexpected error menampilkan error page.
+- [x] Database connection error di-handle dengan baik.
+- [x] Unexpected error menampilkan error page.
 
 ---
 
@@ -571,10 +571,10 @@ Implementasi yang TIDAK BOLEH dilakukan pada UC-02:
 
 Setelah UC-02 View About Section selesai, kondisi project adalah:
 
-- [ ] About section berfungsi dan teruji pada halaman Home.
-- [ ] SectionHeading siap digunakan ulang oleh section lain.
-- [ ] Foto profil tersedia dan ter-render dengan benar.
-- [ ] Project siap untuk implementasi UC-03 View Skills.
+- [x] About section berfungsi dan teruji pada halaman Home.
+- [x] SectionHeading siap digunakan ulang oleh section lain.
+- [x] Foto profil tersedia dan ter-render dengan benar.
+- [x] Project siap untuk implementasi UC-03 View Skills.
 
 ---
 
