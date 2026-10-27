@@ -30,8 +30,8 @@ export function HeroContent({ profile }: HeroContentProps) {
   return (
     <section className="hero-reference-background relative min-h-[calc(100vh-56px)] overflow-hidden pt-0">
       {/* Background Gradients - Hidden on mobile, visible on tablet+ */}
-      <div className="pointer-events-none absolute -right-[8%] -top-[10%] h-[92%] w-[59%] skew-x-[-18deg] bg-gradient-to-br from-[#152b9c]/70 via-[#102b88]/25 to-transparent opacity-80 hidden lg:block lg:-top-[15%]" />
-      <div className="pointer-events-none absolute right-[20%] top-[4%] h-[56%] w-[25%] rotate-[25deg] rounded-[3rem] border border-[#2f72ff]/50 bg-gradient-to-br from-[#154fe9]/70 to-[#4120b8]/20 shadow-[0_0_45px_rgba(43,86,255,0.8)] hidden sm:block lg:top-[0%]" />
+      <div className="pointer-events-none absolute -right-px -top-[10%] h-[92%] w-[59%] skew-x-[-18deg] bg-gradient-to-br from-[#152b9c]/70 via-[#102b88]/25 to-transparent opacity-80 hidden lg:block lg:-top-[15%]" />
+      <div className="pointer-events-none absolute right-0 top-[4%] h-[56%] w-[25%] rotate-[25deg] rounded-[3rem] border border-[#2f72ff]/50 bg-gradient-to-br from-[#154fe9]/70 to-[#4120b8]/20 shadow-[0_0_45px_rgba(43,86,255,0.8)] hidden sm:block lg:top-[0%]" />
       <div className="pointer-events-none absolute bottom-0 left-[37%] h-32 w-[45%] skew-x-[-32deg] bg-gradient-to-t from-[#081f75]/70 to-transparent opacity-50 sm:opacity-100" />
 
       {/* Mobile Layout: Single column with photo as background */}
@@ -101,10 +101,10 @@ export function HeroContent({ profile }: HeroContentProps) {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="relative flex min-h-[calc(100vh-56px)] items-end justify-end">
-            <div className="relative mb-0 -mr-10 w-[650px]">
+          <div className="relative flex min-h-[calc(100vh-56px)] items-end justify-end overflow-hidden">
+            <div className="relative mb-0 w-full max-w-[650px]">
               {/* Handwriting decoration */}
-              <div className="pointer-events-none absolute -right-3 top-[5%] z-20 text-right text-[#a16dff] hero-handwriting text-[clamp(1.4rem,2.8vw,2.3rem)] leading-[0.92]" style={{ transform: 'rotate(-8deg)' }}>
+              <div className="pointer-events-none absolute right-0 top-[5%] z-20 text-right text-[#a16dff] hero-handwriting text-[clamp(1.4rem,2.8vw,2.3rem)] leading-[0.92]" style={{ transform: 'rotate(-8deg)' }}>
                 <div>Better</div><div className="text-[#9b83ff]">Code</div><div className="text-[#53b9ff]">Bigger</div><div className="text-[#53b9ff]">Impact</div><div className="mt-3 text-2xl text-[#54aaff]">↗</div>
               </div>
               {/* Decorative circle border */}
