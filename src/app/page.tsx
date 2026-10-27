@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
+import { AboutAndSkills } from '@/components/sections/AboutAndSkills';
 import { ProfileService } from '@/services/profile.service';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -25,10 +26,9 @@ export default function Home() {
       <Navbar />
       <main className="pt-20">
         <Hero />
+        <AboutAndSkills />
         
         {/* Placeholder for upcoming sections */}
-        {/* UC-02: About Section */}
-        {/* UC-03: Skills Section */}
         {/* UC-06: Projects Section */}
         {/* UC-04: Experience Section */}
         {/* UC-05: Education Section */}
