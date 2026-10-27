@@ -18,12 +18,12 @@ export function Navbar() {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 h-14 bg-[#04081d]/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-full max-w-[1200px] items-center px-3 sm:px-5">
+      <div className="mx-auto flex h-full max-w-[1200px] items-center px-4 sm:px-5 lg:px-5">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Aditya Ulya home">
-          <span className="text-[18px] font-bold tracking-[-0.03em] text-[#f1f4ff]">Aditya Ulya</span>
+          <span className="text-[16px] sm:text-[17px] lg:text-[18px] font-bold tracking-[-0.03em] text-[#f1f4ff]">Aditya Ulya</span>
         </Link>
 
-        <div className="ml-auto hidden h-full items-center gap-9 lg:flex">
+        <div className="ml-auto hidden h-full items-center gap-8 xl:gap-9 lg:flex">
           {navigationItems.map((item) => (
             <Link
               key={item.href}
@@ -38,20 +38,20 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="ml-auto flex items-center gap-3 lg:ml-[auto]">
+        <div className="ml-auto flex items-center gap-2 sm:gap-3 lg:ml-[auto]">
           <ThemeToggle />
           <a
             href="https://wa.me/qr/6QLMK6SY557OB1?s=r"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden min-h-9 rounded-xl bg-gradient-to-r from-[#8745ef] to-[#337cf5] px-6 py-2 text-[13px] font-bold text-white shadow-[0_5px_18px_rgba(64,105,255,0.28)] transition-transform hover:-translate-y-0.5 sm:inline-flex sm:items-center"
+            className="hidden min-h-9 rounded-xl bg-gradient-to-r from-[#8745ef] to-[#337cf5] px-5 sm:px-6 py-2 text-[13px] font-bold text-white shadow-[0_5px_18px_rgba(64,105,255,0.28)] transition-transform hover:-translate-y-0.5 sm:inline-flex sm:items-center"
           >
             Contact
           </a>
           <button
             type="button"
             onClick={() => setIsOpen((open) => !open)}
-            className="grid h-11 w-11 place-items-center rounded-lg text-[#c5d0ec] hover:bg-white/5 lg:hidden"
+            className="grid h-10 sm:h-11 w-10 sm:w-11 place-items-center rounded-lg text-[#c5d0ec] hover:bg-white/5 lg:hidden"
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
           >
@@ -63,9 +63,9 @@ export function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="border-b border-[#293962]/60 bg-[#060b22] px-5 py-3 lg:hidden">
+        <div className="border-b border-[#293962]/60 bg-[#060b22] px-4 sm:px-5 py-2 sm:py-3 lg:hidden">
           {navigationItems.map((item) => (
-            <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-[#c5d0ec] hover:bg-white/5 hover:text-white">
+            <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className="block rounded-lg px-3 py-2 sm:py-2.5 text-sm font-medium text-[#c5d0ec] hover:bg-white/5 hover:text-white">
               {item.label}
             </Link>
           ))}
