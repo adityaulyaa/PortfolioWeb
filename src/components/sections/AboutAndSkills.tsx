@@ -11,7 +11,7 @@ export async function AboutAndSkills() {
   const skills = await SkillService.getSkillsGroupedByCategory();
 
   return (
-    <section id="about" className="relative -mt-20 sm:-mt-24 lg:-mt-21 overflow-hidden">
+    <section id="about" className="relative -mt-20 sm:-mt-24 lg:-mt-21 overflow-visible">
       {/* Background Decorative Shapes - Hidden on mobile, visible on desktop */}
       <div className="pointer-events-none absolute inset-0 hidden lg:block">
         {/* Skewed gradient shape - left top */}
@@ -22,6 +22,22 @@ export async function AboutAndSkills() {
         
         {/* Soft glow circle - left bottom */}
         <div className="absolute left-[8%] bottom-[5%] h-[50%] w-[35%] rounded-full bg-gradient-to-t from-[#2f72ff]/30 to-transparent blur-3xl" />
+      </div>
+
+      {/* Wave Pattern - Outside the card and extending beyond the rounded corner (n-shape) */}
+      <div className="pointer-events-none absolute left-[-180px] top-[-350px] z-0 hidden h-[400px] w-[440px] -translate-x-px -translate-y-px lg:block">
+        <svg viewBox="0 0 440 210" className="h-full w-full overflow-visible" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="aboutWaveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#154fe9" stopOpacity="0.82" />
+              <stop offset="55%" stopColor="#2f72ff" stopOpacity="0.48" />
+              <stop offset="100%" stopColor="#2f72ff" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M0 210H440C350 202 300 182 242 164C170 142 94 158 0 210Z" fill="url(#aboutWaveGradient)" />
+          <path d="M0 210C88 136 160 119 244 142C320 163 378 192 440 210" fill="none" stroke="#2f72ff" strokeOpacity="0.72" strokeWidth="2" />
+          <path d="M0 200C84 129 155 107 246 132C322 153 378 185 440 202" fill="none" stroke="#154fe9" strokeOpacity="0.38" strokeWidth="1" />
+        </svg>
       </div>
 
       <Reveal delay={0.1}>
