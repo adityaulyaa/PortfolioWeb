@@ -3,6 +3,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { AboutAndSkills } from '@/components/sections/AboutAndSkills';
+import { Projects } from '@/components/sections/Projects';
 import { ProfileService } from '@/services/profile.service';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -27,9 +28,9 @@ export default function Home() {
       <main className="pt-20">
         <Hero />
         <AboutAndSkills />
+        <Projects />
         
         {/* Placeholder for upcoming sections */}
-        {/* UC-06: Projects Section */}
         {/* UC-04: Experience Section */}
         {/* UC-05: Education Section */}
       </main>

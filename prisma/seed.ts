@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { profileSeedData } from './seed-data/profile';
 import { skillsSeedData } from './seed-data/skills';
+import { projectsSeedData } from './seed-data/projects';
 
 const prisma = new PrismaClient();
 
@@ -44,6 +45,16 @@ async function main() {
     }
 
     console.log(`✅ Skills seeded for category: ${categoryData.categoryName}`);
+  }
+
+  console.log('📝 Seeding Projects...');
+  for (const projectData of projectsSeedData) {
+    const project = await prisma.project.upsert({
+      where: { slug: projectData.slug },
+      update: projectData,
+      create: projectData,
+    });
+    console.log(`✅ Project seeded: ${project.title}`);
   }
 
   console.log('✅ Seeding complete!');

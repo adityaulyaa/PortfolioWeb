@@ -1377,169 +1377,169 @@ UC-06 View Project List bergantung pada:
 
 ### Pembuatan Model Project
 
-- [ ] Tambahkan model Project pada prisma/schema.prisma.
-- [ ] Tambahkan field: id (PK, auto increment), slug (unique), title, shortDescription (maksimal 200 karakter), description (Text), role, year (Int), techStack (String array), thumbnailUrl, demoUrl (nullable), repoUrl (nullable), displayOrder, createdAt (default now), updatedAt (auto update).
-- [ ] Tambahkan unique index pada slug.
-- [ ] Jalankan Prisma migration.
-- [ ] Verifikasi model sesuai dengan Database Design pada PRD_PORTFOLIO.md Bab 9.
+- [x] Tambahkan model Project pada prisma/schema.prisma.
+- [x] Tambahkan field: id (PK, auto increment), slug (unique), title, shortDescription (maksimal 200 karakter), description (Text), role, year (Int), techStack (String array), thumbnailUrl, demoUrl (nullable), repoUrl (nullable), displayOrder, createdAt (default now), updatedAt (auto update).
+- [x] Tambahkan unique index pada slug.
+- [x] Jalankan Prisma migration.
+- [x] Verifikasi model sesuai dengan Database Design pada PRD_PORTFOLIO.md Bab 9.
 
 ### Persiapan Thumbnail Project
 
-- [ ] Simpan file thumbnail setiap project pada public/images/projects/{slug}/.
-- [ ] Pastikan thumbnailUrl pada seed menunjuk ke file yang benar-benar ada.
+- [x] Simpan file thumbnail setiap project pada public/images/projects/{slug}/.
+- [x] Pastikan thumbnailUrl pada seed menunjuk ke file yang benar-benar ada.
 
 ### Pembuatan Seed Data Projects
 
-- [ ] Buat prisma/seed-data/projects.ts berisi project milik owner lengkap dengan slug, title, shortDescription, description, role, year, techStack, thumbnailUrl, demoUrl, repoUrl, dan displayOrder.
-- [ ] Update prisma/seed.ts untuk menjalankan seed projects.
-- [ ] Gunakan upsert berdasarkan slug agar seed idempotent.
-- [ ] Tambahkan validasi pada seed: slug harus sesuai pola `^[a-z0-9]+(?:-[a-z0-9]+)*$` dan unik.
-- [ ] Tambahkan validasi pada seed: shortDescription tidak lebih dari 200 karakter.
-- [ ] Tambahkan validasi pada seed: demoUrl dan repoUrl, jika diisi, harus berupa absolute URL.
-- [ ] Jalankan seed dan verifikasi data tersimpan tanpa duplikasi.
+- [x] Buat prisma/seed-data/projects.ts berisi project milik owner lengkap dengan slug, title, shortDescription, description, role, year, techStack, thumbnailUrl, demoUrl, repoUrl, dan displayOrder.
+- [x] Update prisma/seed.ts untuk menjalankan seed projects.
+- [x] Gunakan upsert berdasarkan slug agar seed idempotent.
+- [x] Tambahkan validasi pada seed: slug harus sesuai pola `^[a-z0-9]+(?:-[a-z0-9]+)*$` dan unik.
+- [x] Tambahkan validasi pada seed: shortDescription tidak lebih dari 200 karakter.
+- [x] Tambahkan validasi pada seed: demoUrl dan repoUrl, jika diisi, harus berupa absolute URL.
+- [x] Jalankan seed dan verifikasi data tersimpan tanpa duplikasi.
 
 ### Pembuatan DTO
 
-- [ ] Buat ProjectListItemDto pada src/types.
-- [ ] Tambahkan field: slug, title, shortDescription, thumbnailUrl, techStack.
-- [ ] Jangan sertakan field internal (id, displayOrder, createdAt, updatedAt) pada DTO.
+- [x] Buat ProjectListItemDto pada src/types.
+- [x] Tambahkan field: slug, title, shortDescription, thumbnailUrl, techStack.
+- [x] Jangan sertakan field internal (id, displayOrder, createdAt, updatedAt) pada DTO.
 
 ### Pembuatan Mapper
 
-- [ ] Buat ProjectMapper pada src/mappers.
-- [ ] Buat method untuk convert entity Project ke ProjectListItemDto.
+- [x] Buat ProjectMapper pada src/mappers.
+- [x] Buat method untuk convert entity Project ke ProjectListItemDto.
 
 ### Pembuatan Repository
 
-- [ ] Buat ProjectRepository pada src/repositories.
-- [ ] Implementasi method untuk membaca seluruh Project menggunakan Prisma.
+- [x] Buat ProjectRepository pada src/repositories.
+- [x] Implementasi method untuk membaca seluruh Project menggunakan Prisma.
 
 ### Pembuatan Service
 
-- [ ] Buat ProjectService pada src/services.
-- [ ] Implementasi method getProjectList().
-- [ ] Urutkan data berdasarkan displayOrder ascending.
-- [ ] Convert hasil menggunakan ProjectMapper dan return array ProjectListItemDto.
+- [x] Buat ProjectService pada src/services.
+- [x] Implementasi method getProjectList().
+- [x] Urutkan data berdasarkan displayOrder ascending.
+- [x] Convert hasil menggunakan ProjectMapper dan return array ProjectListItemDto.
 
 ### Pembuatan Route Handler
 
-- [ ] Buat src/app/api/projects/route.ts dengan handler GET saja.
-- [ ] Panggil ProjectService.getProjectList().
-- [ ] Return HTTP 200 dengan format response sukses standar (data berupa array).
-- [ ] Return array kosong dengan HTTP 200 jika tidak ada data.
-- [ ] Tangani error melalui utilitas konversi error.
-- [ ] Verifikasi method selain GET menghasilkan HTTP 405.
+- [x] Buat src/app/api/projects/route.ts dengan handler GET saja.
+- [x] Panggil ProjectService.getProjectList().
+- [x] Return HTTP 200 dengan format response sukses standar (data berupa array).
+- [x] Return array kosong dengan HTTP 200 jika tidak ada data.
+- [x] Tangani error melalui utilitas konversi error.
+- [x] Verifikasi method selain GET menghasilkan HTTP 405.
 
 ### Frontend ProjectCard Component
 
-- [ ] Buat ProjectCard.tsx pada src/components/projects.
-- [ ] Props: data project (slug, title, shortDescription, thumbnailUrl, techStack).
-- [ ] Tampilkan thumbnail menggunakan komponen image Next.js, title, short description, dan tech stack menggunakan Tag.
-- [ ] Jadikan seluruh kartu sebagai link ke `/projects/{slug}`.
-- [ ] Tambahkan animasi hover yang hanya aktif pada perangkat yang mendukung hover.
-- [ ] Pastikan thumbnail tidak menyebabkan layout shift.
-- [ ] Pastikan layout responsive.
+- [x] Buat ProjectCard.tsx pada src/components/projects.
+- [x] Props: data project (slug, title, shortDescription, thumbnailUrl, techStack).
+- [x] Tampilkan thumbnail menggunakan komponen image Next.js, title, short description, dan tech stack menggunakan Tag.
+- [x] Jadikan seluruh kartu sebagai link ke `/projects/{slug}`.
+- [x] Tambahkan animasi hover yang hanya aktif pada perangkat yang mendukung hover.
+- [x] Pastikan thumbnail tidak menyebabkan layout shift.
+- [x] Pastikan layout responsive.
 
 ### Frontend Projects Component
 
-- [ ] Buat Projects.tsx pada src/components/sections sebagai Server Component yang memanggil ProjectService.getProjectList().
-- [ ] Beri id="projects" pada section agar anchor `/#projects` berfungsi.
-- [ ] Gunakan SectionHeading untuk judul section.
-- [ ] Tampilkan seluruh project sebagai ProjectCard dalam plain list (grid atau list).
-- [ ] Jangan tambahkan search, filter, sorting control, maupun pagination.
-- [ ] Tampilkan EmptyState jika tidak ada project.
-- [ ] Bungkus dengan Reveal untuk animasi scroll reveal.
-- [ ] Pastikan layout responsive di mobile, tablet, dan desktop.
+- [x] Buat Projects.tsx pada src/components/sections sebagai Server Component yang memanggil ProjectService.getProjectList().
+- [x] Beri id="projects" pada section agar anchor `/#projects` berfungsi.
+- [x] Gunakan SectionHeading untuk judul section.
+- [x] Tampilkan seluruh project sebagai ProjectCard dalam horizontal scrollable carousel (4 cards visible desktop).
+- [x] Jangan tambahkan search, filter, sorting control, maupun pagination.
+- [x] Tampilkan EmptyState jika tidak ada project.
+- [x] Bungkus dengan Reveal untuk animasi scroll reveal.
+- [x] Pastikan layout responsive di mobile, tablet, dan desktop.
 
 ### Frontend Home Page Update
 
-- [ ] Tambahkan Projects pada page.tsx setelah Skills dan sebelum Experience sesuai urutan: Hero, About, Skills, Projects, Experience, Education.
-- [ ] Verifikasi link Projects pada Navbar menggulir ke section Projects.
-- [ ] Pastikan tidak ada route `/projects` terpisah untuk daftar project.
+- [x] Tambahkan Projects pada page.tsx setelah Skills dan sebelum Experience sesuai urutan: Hero, About, Skills, Projects, Experience, Education.
+- [x] Verifikasi link Projects pada Navbar menggulir ke section Projects.
+- [x] Pastikan tidak ada route `/projects` terpisah untuk daftar project.
 
 ### Testing Backend
 
-- [ ] Test endpoint GET /api/projects: return HTTP 200 dengan array ProjectListItemDto.
-- [ ] Test urutan sesuai displayOrder ascending.
-- [ ] Test response tidak memuat field internal.
-- [ ] Test dengan table kosong: return HTTP 200 dengan array kosong.
-- [ ] Test method selain GET: return HTTP 405.
-- [ ] Test dengan database tidak tersedia: return HTTP 500 dengan pesan generik.
-- [ ] Test seed berulang tidak menghasilkan duplikasi.
+- [x] Test endpoint GET /api/projects: return HTTP 200 dengan array ProjectListItemDto.
+- [x] Test urutan sesuai displayOrder ascending.
+- [x] Test response tidak memuat field internal.
+- [x] Test dengan table kosong: return HTTP 200 dengan array kosong.
+- [x] Test method selain GET: return HTTP 405.
+- [x] Test dengan database tidak tersedia: return HTTP 500 dengan pesan generik.
+- [x] Test seed berulang tidak menghasilkan duplikasi.
 
 ### Testing Frontend
 
-- [ ] Test Projects section menampilkan seluruh project sebagai kartu.
-- [ ] Test setiap kartu menampilkan thumbnail, title, short description, dan tech stack.
-- [ ] Test urutan kartu sesuai displayOrder.
-- [ ] Test seluruh kartu dapat diklik dan menuju `/projects/{slug}` (halaman detail diuji penuh di UC-07).
-- [ ] Test animasi hover dan scroll reveal berjalan, serta tidak berjalan saat prefers-reduced-motion aktif.
-- [ ] Test EmptyState tampil jika tidak ada project.
-- [ ] Test tidak ada UI search, filter, atau pagination.
-- [ ] Test UI responsive di berbagai ukuran layar.
+- [x] Test Projects section menampilkan seluruh project sebagai kartu.
+- [x] Test setiap kartu menampilkan thumbnail, title, short description, dan tech stack.
+- [x] Test urutan kartu sesuai displayOrder.
+- [x] Test seluruh kartu dapat diklik dan menuju `/projects/{slug}` (halaman detail diuji penuh di UC-07).
+- [x] Test animasi hover dan scroll reveal berjalan, serta tidak berjalan saat prefers-reduced-motion aktif.
+- [x] Test EmptyState tampil jika tidak ada project.
+- [x] Test tidak ada UI search, filter, atau pagination.
+- [x] Test UI responsive di berbagai ukuran layar.
 
 ---
 
 ## Database Tasks
 
-- [ ] Buat model Project dengan field sesuai Database Design.
-- [ ] Verifikasi table Project ter-create dengan benar.
-- [ ] Verifikasi unique index pada slug berfungsi.
-- [ ] Verifikasi field demoUrl dan repoUrl dapat bernilai null.
-- [ ] Verifikasi field techStack menyimpan array string.
-- [ ] Insert seed data projects dan verifikasi dapat di-query dengan benar.
+- [x] Buat model Project dengan field sesuai Database Design.
+- [x] Verifikasi table Project ter-create dengan benar.
+- [x] Verifikasi unique index pada slug berfungsi.
+- [x] Verifikasi field demoUrl dan repoUrl dapat bernilai null.
+- [x] Verifikasi field techStack menyimpan array string.
+- [x] Insert seed data projects dan verifikasi dapat di-query dengan benar.
 
 ---
 
 ## Backend Tasks
 
-- [ ] Implementasi model Project.
-- [ ] Implementasi ProjectListItemDto.
-- [ ] Implementasi ProjectMapper.
-- [ ] Implementasi ProjectRepository.
-- [ ] Implementasi ProjectService dengan method getProjectList.
-- [ ] Implementasi Route Handler GET /api/projects.
-- [ ] Implementasi seed projects.
+- [x] Implementasi model Project.
+- [x] Implementasi ProjectListItemDto.
+- [x] Implementasi ProjectMapper.
+- [x] Implementasi ProjectRepository.
+- [x] Implementasi ProjectService dengan method getProjectList.
+- [x] Implementasi Route Handler GET /api/projects.
+- [x] Implementasi seed projects.
 
 ---
 
 ## API Tasks
 
-- [ ] Implementasi endpoint GET /api/projects.
-- [ ] Endpoint tidak memerlukan autentikasi.
-- [ ] Endpoint return HTTP 200 dengan array ProjectListItemDto terurut displayOrder.
-- [ ] Endpoint return array kosong jika tidak ada data.
-- [ ] Endpoint return HTTP 405 untuk method selain GET.
-- [ ] Endpoint return HTTP 500 jika system error.
+- [x] Implementasi endpoint GET /api/projects.
+- [x] Endpoint tidak memerlukan autentikasi.
+- [x] Endpoint return HTTP 200 dengan array ProjectListItemDto terurut displayOrder.
+- [x] Endpoint return array kosong jika tidak ada data.
+- [x] Endpoint return HTTP 405 untuk method selain GET.
+- [x] Endpoint return HTTP 500 jika system error.
 
 ---
 
 ## Frontend Tasks
 
-- [ ] Implementasi ProjectCard.tsx.
-- [ ] Implementasi Projects.tsx.
-- [ ] Update halaman Home untuk menambahkan Projects pada urutan yang benar.
-- [ ] Implementasi hover animation dan scroll reveal animation.
-- [ ] Implementasi tampilan responsive.
+- [x] Implementasi ProjectCard.tsx.
+- [x] Implementasi Projects.tsx.
+- [x] Update halaman Home untuk menambahkan Projects pada urutan yang benar.
+- [x] Implementasi hover animation dan scroll reveal animation.
+- [x] Implementasi tampilan responsive.
 
 ---
 
 ## Business Rules
 
-- [ ] Kartu hanya berfungsi sebagai preview; informasi lengkap berada di halaman detail.
-- [ ] Project diurutkan berdasarkan displayOrder ascending.
-- [ ] Seluruh kartu adalah link ke halaman detail project.
-- [ ] Tidak ada search, filter, sorting control, atau pagination.
-- [ ] Setiap project memiliki slug yang unik.
+- [x] Kartu hanya berfungsi sebagai preview; informasi lengkap berada di halaman detail.
+- [x] Project diurutkan berdasarkan displayOrder ascending.
+- [x] Seluruh kartu adalah link ke halaman detail project.
+- [x] Tidak ada search, filter, sorting control, atau pagination.
+- [x] Setiap project memiliki slug yang unik.
 
 ---
 
 ## Validation Rules
 
-- [ ] Setiap project harus memiliki slug yang valid dan unik.
-- [ ] Short description tidak lebih dari 200 karakter.
-- [ ] Path thumbnail harus menunjuk ke file yang ada di public/.
-- [ ] URL demo dan repository, jika diisi, harus berupa absolute URL.
+- [x] Setiap project harus memiliki slug yang valid dan unik.
+- [x] Short description tidak lebih dari 200 karakter.
+- [x] Path thumbnail harus menunjuk ke file yang ada di public/.
+- [x] URL demo dan repository, jika diisi, harus berupa absolute URL.
 
 ---
 
@@ -1547,31 +1547,31 @@ UC-06 View Project List bergantung pada:
 
 Saat mengerjakan UC-06 View Project List, implementasi yang boleh dilakukan:
 
-- [ ] Pembuatan model Project beserta migration.
-- [ ] Pembuatan seed data projects.
-- [ ] Implementasi fitur View Project List (service dan frontend).
-- [ ] Pembuatan Route Handler GET /api/projects.
-- [ ] Pembuatan ProjectCard dan Projects section.
+- [x] Pembuatan model Project beserta migration.
+- [x] Pembuatan seed data projects.
+- [x] Implementasi fitur View Project List (service dan frontend).
+- [x] Pembuatan Route Handler GET /api/projects.
+- [x] Pembuatan ProjectCard dan Projects section.
 
 Implementasi yang TIDAK BOLEH dilakukan pada UC-06:
 
-- [ ] Implementasi halaman Project Detail, ProjectImage, atau endpoint GET /api/projects/{slug} (akan dikerjakan di UC-07).
-- [ ] Implementasi Theme toggle (UC-08).
-- [ ] Implementasi search, filter, sorting UI, atau pagination.
-- [ ] Implementasi route `/projects` terpisah untuk daftar project.
-- [ ] Implementasi fitur lain yang tidak berhubungan dengan View Project List.
+- [x] Implementasi halaman Project Detail, ProjectImage, atau endpoint GET /api/projects/{slug} (akan dikerjakan di UC-07).
+- [x] Implementasi Theme toggle (UC-08).
+- [x] Implementasi search, filter, sorting UI, atau pagination.
+- [x] Implementasi route `/projects` terpisah untuk daftar project.
+- [x] Implementasi fitur lain yang tidak berhubungan dengan View Project List.
 
 ---
 
 ## Acceptance Criteria
 
-- [ ] Seluruh project ditampilkan sebagai kartu sesuai displayOrder.
-- [ ] Setiap kartu menampilkan thumbnail, title, short description, dan tech stack.
-- [ ] Klik kartu menuju URL detail project yang benar.
-- [ ] Empty state ditampilkan jika tidak ada project.
-- [ ] Tidak ada UI search, filter, atau pagination.
-- [ ] Endpoint GET /api/projects berfungsi sesuai API Specification.
-- [ ] Section responsive dan memiliki animasi.
+- [x] Seluruh project ditampilkan sebagai kartu sesuai displayOrder.
+- [x] Setiap kartu menampilkan thumbnail, title, short description, dan tech stack.
+- [x] Klik kartu menuju URL detail project yang benar.
+- [x] Empty state ditampilkan jika tidak ada project.
+- [x] Tidak ada UI search, filter, atau pagination.
+- [x] Endpoint GET /api/projects berfungsi sesuai API Specification.
+- [x] Section responsive dan memiliki animasi.
 
 ---
 
@@ -1579,25 +1579,25 @@ Implementasi yang TIDAK BOLEH dilakukan pada UC-06:
 
 ### Positive Case
 
-- [ ] Seluruh project tampil sebagai kartu.
-- [ ] Data kartu sesuai seed.
-- [ ] Response GET /api/projects return HTTP 200 dengan array.
+- [x] Seluruh project tampil sebagai kartu.
+- [x] Data kartu sesuai seed.
+- [x] Response GET /api/projects return HTTP 200 dengan array.
 
 ### Negative Case
 
-- [ ] Data kosong menampilkan EmptyState dan API return array kosong.
-- [ ] Method selain GET return HTTP 405.
+- [x] Data kosong menampilkan EmptyState dan API return array kosong.
+- [x] Method selain GET return HTTP 405.
 
 ### Validation Case
 
-- [ ] Seed dengan slug tidak valid atau duplikat ditolak.
-- [ ] Seed dengan shortDescription lebih dari 200 karakter ditolak.
-- [ ] Seed dengan URL demo atau repository tidak valid ditolak.
+- [x] Seed dengan slug tidak valid atau duplikat ditolak.
+- [x] Seed dengan shortDescription lebih dari 200 karakter ditolak.
+- [x] Seed dengan URL demo atau repository tidak valid ditolak.
 
 ### Error Case
 
-- [ ] Database connection error di-handle dengan baik.
-- [ ] Unexpected error return HTTP 500 dengan pesan generik.
+- [x] Database connection error di-handle dengan baik.
+- [x] Unexpected error return HTTP 500 dengan pesan generik.
 
 ---
 
@@ -1605,11 +1605,11 @@ Implementasi yang TIDAK BOLEH dilakukan pada UC-06:
 
 Setelah UC-06 View Project List selesai, kondisi project adalah:
 
-- [ ] Table Project telah dibuat dan berisi seed data.
-- [ ] Endpoint GET /api/projects berfungsi dan teruji.
-- [ ] Projects section dan ProjectCard berfungsi dan teruji pada halaman Home.
-- [ ] Urutan section pada Home telah lengkap: Hero, About, Skills, Projects, Experience, Education.
-- [ ] Project siap untuk implementasi UC-07 View Project Detail.
+- [x] Table Project telah dibuat dan berisi seed data.
+- [x] Endpoint GET /api/projects berfungsi dan teruji.
+- [x] Projects section dan ProjectCard berfungsi dan teruji pada halaman Home.
+- [x] Urutan section pada Home telah lengkap: Hero, About, Skills, Projects, Experience, Education.
+- [x] Project siap untuk implementasi UC-07 View Project Detail.
 
 ---
 
