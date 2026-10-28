@@ -1,47 +1,43 @@
 export const skillsSeedData = [
   {
-    categoryName: 'Frontend',
+    categoryName: 'Languages',
     displayOrder: 1,
     skills: [
-      { name: 'JavaScript', displayOrder: 1 },
-      { name: 'TypeScript', displayOrder: 2 },
-      { name: 'React', displayOrder: 3 },
-      { name: 'Next.js', displayOrder: 4 },
-      { name: 'Tailwind CSS', displayOrder: 5 },
-      { name: 'UI/UX', displayOrder: 6 },
+      { name: 'Java', displayOrder: 1 },
+      { name: 'Python', displayOrder: 2 },
+      { name: 'PHP', displayOrder: 3 },
+      { name: 'JavaScript', displayOrder: 4 },
+      { name: 'TypeScript', displayOrder: 5 },
+      { name: 'C', displayOrder: 6 },
+      { name: 'HTML', displayOrder: 7 },
+      { name: 'CSS', displayOrder: 8 },
     ],
   },
   {
-    categoryName: 'Backend',
+    categoryName: 'Frontend',
     displayOrder: 2,
     skills: [
-      { name: 'Node.js', displayOrder: 1 },
-      { name: 'Python', displayOrder: 2 },
-      { name: 'Problem Solving', displayOrder: 3 },
+      { name: 'React', displayOrder: 1 },
+      { name: 'Vite', displayOrder: 2 },
+      { name: 'Tailwind CSS', displayOrder: 3 },
     ],
   },
   {
-    categoryName: 'Database',
+    categoryName: 'Backend & Database',
     displayOrder: 3,
     skills: [
-      { name: 'MySQL', displayOrder: 1 },
-      { name: 'PostgreSQL', displayOrder: 2 },
+      { name: 'Spring Boot', displayOrder: 1 },
+      { name: 'Laravel', displayOrder: 2 },
+      { name: 'MySQL', displayOrder: 3 },
+      { name: 'PostgreSQL', displayOrder: 4 },
     ],
   },
   {
-    categoryName: 'Tools',
+    categoryName: 'Full-stack',
     displayOrder: 4,
     skills: [
-      { name: 'Git', displayOrder: 1 },
-      { name: 'Docker', displayOrder: 2 },
-      { name: 'Linux', displayOrder: 3 },
-    ],
-  },
-  {
-    categoryName: 'Soft Skills',
-    displayOrder: 5,
-    skills: [
-      { name: 'Teamwork', displayOrder: 1 },
+      { name: 'Next.js', displayOrder: 1 },
+      { name: 'Laravel', displayOrder: 2 },
     ],
   },
 ];

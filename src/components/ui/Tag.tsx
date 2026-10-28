@@ -12,7 +12,7 @@ export function Tag({ children, variant = 'default', size = 'md' }: TagProps) {
   };
 
   const variantClasses = {
-    default: 'border-[#2f72ff]/50 text-[#c5d0ec] hover:bg-[#2f72ff]/10 hover:border-[#2f72ff]/70',
+    default: 'border-[#2b67db] bg-[#071544]/60 text-[#dbe8ff] hover:bg-[#071544]/80 hover:border-[#2b67db] hover:text-[#eef4ff] shadow-[0_0_14px_rgba(37,103,255,0.18)]',
     primary: 'border-[#2f72ff] bg-[#2f72ff]/10 text-[#7ba3ff]',
     secondary: 'border-[#7a8db3]/40 text-[#a0afc8] hover:border-[#7a8db3]/60',
   };
