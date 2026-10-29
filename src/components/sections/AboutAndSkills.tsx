@@ -11,7 +11,7 @@ export async function AboutAndSkills() {
   const skills = await SkillService.getSkillsGroupedByCategory();
 
   return (
-    <section id="about" className="relative -mt-20 sm:-mt-24 lg:-mt-21 overflow-visible">
+    <section id="about" data-nav-section="about" className="relative -mt-20 sm:-mt-24 lg:-mt-21 overflow-visible">
       {/* Background Decorative Shapes - Hidden on mobile, visible on desktop */}
       <div className="pointer-events-none absolute inset-0 hidden lg:block">
         {/* Skewed gradient shape - left top */}

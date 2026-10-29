@@ -28,7 +28,7 @@ function ContactIcon() {
 
 export function HeroContent({ profile }: HeroContentProps) {
   return (
-    <section id="home" className="hero-reference-background relative min-h-[calc(100vh-56px)] overflow-hidden pt-0">
+    <section id="home" data-nav-section="home" className="hero-reference-background relative min-h-[calc(100vh-56px)] overflow-hidden pt-0">
       {/* Background Gradients - Hidden on mobile, visible on tablet+ */}
       <div className="pointer-events-none absolute -right-px -top-[10%] h-[92%] w-[59%] skew-x-[-18deg] bg-gradient-to-br from-[#152b9c]/70 via-[#102b88]/25 to-transparent opacity-80 hidden lg:block lg:-top-[15%]" />
       <div className="pointer-events-none absolute right-0 top-[4%] h-[56%] w-[25%] rotate-[25deg] rounded-[3rem] border border-[#2f72ff]/50 bg-gradient-to-br from-[#154fe9]/70 to-[#4120b8]/20 shadow-[0_0_45px_rgba(43,86,255,0.8)] hidden sm:block lg:top-[0%]" />

@@ -20,53 +20,48 @@ const navigationItems: NavigationItem[] = [
 
 /**
  * Custom hook to detect active section based on scroll position
- * Uses Intersection Observer API for performance
+ * Uses scroll position detection with a fixed anchor point (100px from top)
+ * Finds the section whose top is closest to but not below the anchor
  */
 function useActiveSection() {
   const [activeSection, setActiveSection] = useState('home');
-  const observerRef = useRef<IntersectionObserver | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
-    // Create intersection observer
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        // Find the section that is most visible
-        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
-        
-        if (visibleEntries.length > 0) {
-          // Sort by intersection ratio to get the most visible one
-          const mostVisible = visibleEntries.reduce((prev, current) =>
-            current.intersectionRatio > prev.intersectionRatio ? current : prev
-          );
-          
-          const sectionId = mostVisible.target.id;
-          
-          // Map section IDs to navigation IDs
-          if (sectionId === 'about' || sectionId === 'skills') {
-            setActiveSection('about');
-          } else if (sectionId) {
-            setActiveSection(sectionId);
-          }
+    const DETECTION_OFFSET = 100; // px from top of viewport
+
+    const updateActiveSection = () => {
+      const sections = document.querySelectorAll('[data-nav-section]');
+      const scrollPosition = window.scrollY + DETECTION_OFFSET;
+
+      let currentSection = 'home';
+
+      sections.forEach((section) => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const navId = section.getAttribute('data-nav-section');
+
+        if (navId && scrollPosition >= sectionTop) {
+          currentSection = navId;
         }
-      },
-      {
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-        rootMargin: '-64px 0px -66% 0px', // Account for navbar height
-      }
-    );
+      });
 
-    // Observe all sections
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach((section) => {
-      if (observerRef.current) {
-        observerRef.current.observe(section);
-      }
-    });
+      setActiveSection(currentSection);
+    };
 
-    // Cleanup
+    const handleScroll = () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      rafRef.current = requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
       }
     };
   }, []);
@@ -77,21 +72,51 @@ function useActiveSection() {
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const activeSection = useActiveSection();
-  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const [indicatorStyle, setIndicatorStyle] = useState({ translateX: 0, width: 0 });
   const navItemsRef = useRef<Array<HTMLAnchorElement | null>>([]);
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
 
-  useEffect(() => {
+  const updateIndicatorPosition = () => {
     const activeIndex = navigationItems.findIndex((item) => item.id === activeSection);
     const activeElement = navItemsRef.current[activeIndex];
 
-    if (activeElement) {
-      const { offsetLeft, offsetWidth } = activeElement;
+    if (activeElement && navContainerRef.current) {
+      const containerRect = navContainerRef.current.getBoundingClientRect();
+      const elementRect = activeElement.getBoundingClientRect();
+
+      const elementCenterX = elementRect.left - containerRect.left + elementRect.width / 2;
+      const translateX = elementCenterX - 22; // Center the 44px indicator
+
       setIndicatorStyle({
-        left: offsetLeft + (offsetWidth / 2) - 22, // Center the 44px (w-11) indicator
+        translateX,
         width: 44, // w-11 in Tailwind is 2.75rem = 44px
       });
     }
+  };
+
+  useEffect(() => {
+    updateIndicatorPosition();
   }, [activeSection]);
+
+  useEffect(() => {
+    if (!navContainerRef.current) return;
+
+    resizeObserverRef.current = new ResizeObserver(() => {
+      updateIndicatorPosition();
+    });
+
+    resizeObserverRef.current.observe(navContainerRef.current);
+
+    window.addEventListener('resize', updateIndicatorPosition, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', updateIndicatorPosition);
+      if (resizeObserverRef.current) {
+        resizeObserverRef.current.disconnect();
+      }
+    };
+  }, []);
 
   const setNavItemRef = (index: number) => (el: HTMLAnchorElement | null) => {
     navItemsRef.current[index] = el;
@@ -104,7 +129,7 @@ export function Navbar() {
           <span className="text-[16px] sm:text-[17px] lg:text-[18px] font-bold tracking-[-0.03em] text-[#f1f4ff]">Aditya Ulya</span>
         </Link>
 
-        <div className="ml-auto hidden h-full items-center gap-8 xl:gap-9 lg:flex relative">
+        <div ref={navContainerRef} className="ml-auto hidden h-full items-center gap-8 xl:gap-9 lg:flex relative">
           {navigationItems.map((item, index) => (
             <Link
               key={item.id}
@@ -122,7 +147,7 @@ export function Navbar() {
           <div 
             className="absolute -bottom-0.5 h-[2px] rounded-full bg-[#9e55ff] shadow-[0_0_12px_3px_rgba(140,72,255,0.6)] transition-all duration-300 ease-out"
             style={{
-              left: `${indicatorStyle.left}px`,
+              transform: `translateX(${indicatorStyle.translateX}px)`,
               width: `${indicatorStyle.width}px`,
             }}
           />

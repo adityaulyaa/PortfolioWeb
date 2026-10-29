@@ -29,11 +29,24 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
     checkScroll();
     const container = scrollContainerRef.current;
     if (container) {
-      container.addEventListener('scroll', checkScroll);
+      // Use passive: true for scroll performance
+      const throttledScroll = () => {
+        if (!rafRef.current) {
+          rafRef.current = requestAnimationFrame(() => {
+            checkScroll();
+            rafRef.current = null;
+          });
+        }
+      };
+      
+      const rafRef = { current: null as number | null };
+
+      container.addEventListener('scroll', throttledScroll, { passive: true });
       window.addEventListener('resize', checkScroll);
       return () => {
-        container.removeEventListener('scroll', checkScroll);
+        container.removeEventListener('scroll', throttledScroll);
         window.removeEventListener('resize', checkScroll);
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
       };
     }
   }, []);
@@ -49,7 +62,7 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
   };
 
   return (
-<section id="projects" className="relative -mt-20 sm:-mt-24 lg:-mt-1 overflow-visible">
+<section id="projects" data-nav-section="projects" className="relative -mt-20 sm:-mt-24 lg:-mt-1 overflow-visible">
       {/* Background Decorative Shapes - Hidden on mobile, visible on desktop */}
       <div className="pointer-events-none absolute inset-0 hidden lg:block">
         {/* Skewed gradient shape - right top (mirrors About & Skills) */}
@@ -98,6 +111,8 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
             <div className="pointer-events-none absolute left-1/2 top-[60px] bottom-[40px] hidden lg:block w-px bg-gradient-to-b from-transparent via-[#2f72ff]/20 to-transparent" />
 
             {/* ========== MIRRORED FLOATING HEXAGON NETWORK ========== */}
+            {!prefersReducedMotion && (
+              <>
             
             {/* Hexagon Cluster - Top Right (Mirrored) */}
             <div className="pointer-events-none absolute top-8 right-12 hidden lg:block">
@@ -296,21 +311,8 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
                 <div className="absolute top-6 left-2 h-1 w-1 rounded-full bg-gradient-to-br from-[#53b9ff] to-[#2f72ff] shadow-[0_0_8px_rgba(83,185,255,0.5)] animate-[pulse_2.7s_ease-in-out_infinite_0.5s]" />
               </div>
             </div>
-
-            {/* Floating Single Hexagon - Far Top Left (Mirrored from Far Top Right) */}
-            <div className="pointer-events-none absolute top-12 left-6 hidden lg:block">
-              <svg className="w-5 h-5 opacity-35 animate-[float_7.2s_ease-in-out_infinite_2s]" viewBox="0 0 100 100">
-                <polygon 
-                  points="50 1 95 25 95 75 50 99 5 75 5 25" 
-                  fill="none" 
-                  stroke="#2f72ff" 
-                  strokeWidth="1.5"
-                  className="animate-[spin_22s_linear_infinite_reverse]"
-                />
-              </svg>
-            </div>
-            
-            {/* ========== END HEXAGON NETWORK ========== */}
+              </>
+            )}
             
             {/* Main content */}
             <div className="relative z-10">
