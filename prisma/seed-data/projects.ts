@@ -1,31 +1,30 @@
 export const projectsSeedData = [
   {
-    slug: 'investment-optimizer',
-    title: 'Investment Optimizer',
-    shortDescription: 'A desktop app to optimize investment using various algorithms (Branch and Bound, Dynamic Programming, Genetic Algorithm).',
-    description: `Investment Optimizer is a powerful desktop application designed to help users make informed investment decisions using advanced algorithmic approaches.
+    slug: 'ProjectReservasiRuangan',
+    title: 'Project Reservasi Ruangan',
+    shortDescription: 'Laravel-based Campus Facility Reservation & Reporting System manages campus assets like classrooms, labs, and equipment. Unauthenticated visitors can view schedules, while logged-in users submit requests and report damage. Officers process queue approvals, admins manage master data, and 30-minute time slots operate under role-based access control.',
+    description: `Project Reservasi Ruangan adalah sistem pemesanan dan pelaporan fasilitas kampus berbasis Laravel yang mengelola aset seperti kelas, laboratorium, dan peralatan.
 
-The application implements multiple optimization algorithms including Branch and Bound for exact solutions, Dynamic Programming for complex scenarios, and Genetic Algorithms for heuristic-based exploration.
+Fitur utama:
+• Reservasi jadwal ruangan oleh pengunjung tidak terotentikasi
+• Pengajuan permintaan pemesanan oleh pengguna terdaftar
+• Pemrosesan antrian dan persetujuan oleh officer
+• Manajemen data master oleh admin
+• Akses berbasis peran dengan slot waktu 30 menit
 
-Key Features:
-• Multi-algorithm support for portfolio optimization
-• Real-time performance metrics and visualization
-• Risk analysis and scenario planning
-• User-friendly interface with detailed reporting
-
-Built with Python and modern UI frameworks, this project demonstrates expertise in algorithm design, optimization techniques, and desktop application development.`,
+Sistem ini menunjukkan kemahiran pengembangan full-stack dengan Laravel, MySQL, dan Tailwind CSS untuk menciptakan pengalaman pengguna yang responsif dan terorganisir.`,
     role: 'Full-Stack Developer',
-    year: 2024,
-    techStack: ['Python', 'Tkinter', 'OOP', 'Algorithms'],
-    thumbnailUrl: '/images/projects/investment-optimizer/thumbnail.png',
+    year: 2026,
+    techStack: ['Laravel', 'MySQL', 'Tailwind CSS', 'Blade', 'PHP'],
+    thumbnailUrl: '/images/projects/ProjectReservasiRuangan/thumbnail.png',
     demoUrl: null,
-    repoUrl: 'https://github.com/adityaulyaa/investment-optimizer',
+    repoUrl: 'https://github.com/adityaulyaa/ProjectReservasiRuangan',
     displayOrder: 1,
   },
   {
-    slug: 'kafein-ai',
-    title: 'KAFEin AI',
-    shortDescription: 'An AI-powered cafe recommendation system for Undip students with personalized preferences using machine learning.',
+    slug: 'E-COMMERCE',
+    title: 'E-COMMERCE',
+    shortDescription: 'Single-vendor e-commerce app with a decoupled architecture. Key features: user authentication (register, login, logout via JWT), product catalog browsing with search and filters, shopping cart management, seamless checkout with flexible payment processing and retries, and detailed order history tracking.',
     description: `KAFEin AI is an intelligent recommendation system that helps Universitas Diponegoro students discover their perfect cafe match based on personalized preferences.
 
 The system uses collaborative filtering and content-based filtering algorithms to provide tailored recommendations. It learns from user behavior and preferences to continuously improve suggestions.
@@ -38,17 +37,17 @@ Features:
 
 This project showcases machine learning implementation, recommendation algorithms, and full-stack development with modern web technologies.`,
     role: 'Full-Stack Developer',
-    year: 2024,
-    techStack: ['Next.js', 'TypeScript', 'TailwindCSS', 'Machine Learning'],
-    thumbnailUrl: '/images/projects/kafein-ai/thumbnail.png',
+    year: 2026,
+    techStack: ['React', 'Spring Boot', 'MySQL', 'JWT', 'TypeScript', 'Vite'],
+    thumbnailUrl: '/images/projects/E-COMMERCE/thumbnail.png',
     demoUrl: 'https://kafein-ai-demo.vercel.app',
-    repoUrl: 'https://github.com/adityaulyaa/kafein-ai',
+    repoUrl: 'https://github.com/adityaulyaa/E-COMMERCE',
     displayOrder: 2,
   },
   {
-    slug: 'smart-cooling-management',
-    title: 'Smart Cooling Management',
-    shortDescription: 'IoT-based AC optimization system using ESP32 and MQTT for real-time temperature monitoring and control.',
+    slug: 'WealthManagementSystem',
+    title: 'Wealth Management System',
+    shortDescription: 'Full-stack personal finance web app featuring user management and risk assessment. Includes a rules-engine portfolio recommender, financial goal tracking with status alerts, template insights, a what-if simulator to model income/expense changes on goal timelines, and a dynamic dashboard for portfolio summary and charts.',
     description: `Smart Cooling Management is an innovative IoT solution that optimizes air conditioning systems for energy efficiency and comfort.
 
 The system utilizes ESP32 microcontrollers, MQTT protocol for communication, and real-time data processing to monitor and control cooling systems intelligently.
@@ -61,17 +60,17 @@ Key Components:
 • Energy consumption optimization
 
 This project demonstrates expertise in embedded systems, IoT architecture, IoT protocol implementation, and real-time data processing using ESP32 and MQTT technologies.`,
-    role: 'IoT & Backend Developer',
-    year: 2024,
-    techStack: ['ESP32', 'MQTT', 'React', 'Node.js'],
-    thumbnailUrl: '/images/projects/smart-cooling-management/thumbnail.png',
+    role: 'Full-Stack Developer',
+    year: 2025,
+    techStack: ['React', 'Spring Boot', 'MySQL', 'JWT', 'MySQL'],
+    thumbnailUrl: '/images/projects/WealthManagementSystem/thumbnail.png',
     demoUrl: null,
-    repoUrl: 'https://github.com/adityaulyaa/smart-cooling-management',
+    repoUrl: 'https://github.com/adityaulyaa/WealthManagementSystem',
     displayOrder: 3,
   },
   {
-    slug: 'financial-risk-dashboard',
-    title: 'Financial Risk Analysis Dashboard',
+    slug: 'investment_optimizer',
+    title: 'Investment Optimizer',
     shortDescription: 'A comprehensive crypto-based risk analysis dashboard with interactive visualization and real-time market data.',
     description: `Financial Risk Analysis Dashboard is a sophisticated platform for analyzing and visualizing financial market risks, particularly focused on cryptocurrency markets.
 
@@ -88,16 +87,16 @@ Features:
 Built with modern web technologies and Python for backend calculations, this project showcases proficiency in data visualization, real-time data processing, and financial analytics.`,
     role: 'Full-Stack Developer',
     year: 2025,
-    techStack: ['Python', 'CUDA', 'Chart.js', 'Node.js'],
-    thumbnailUrl: '/images/projects/financial-risk-dashboard/thumbnail.png',
+    techStack: ['Python', 'Branch & Bound', 'Dynamic Programming', 'Genetic Algorithm', 'Tkinter GUI'],
+    thumbnailUrl: '/images/projects/investment_optimizer/thumbnail.png',
     demoUrl: 'https://financial-risk-demo.vercel.app',
-    repoUrl: 'https://github.com/adityaulyaa/financial-risk-dashboard',
+    repoUrl: 'https://github.com/adityaulyaa/investment_optimizer',
     displayOrder: 4,
   },
   {
-    slug: 'task-management-app',
-    title: 'Task Management Application',
-    shortDescription: 'A full-featured task management system with team collaboration, real-time updates, and progress tracking.',
+    slug: 'eco-therma-ai',
+    title: 'eco-therma-ai',
+    shortDescription: 'React and Vite-based web app designed for integrating thermal and environmental systems via real-time MQTT protocol. Featuring a clean Tailwind CSS UI with Lucide icons, the project focuses on live monitoring and control for AI-driven, sensor-enabled devices.',
     description: `Task Management Application is a comprehensive project management tool designed for team collaboration and productivity enhancement.
 
 The application provides intuitive task creation, assignment, tracking, and completion workflows. Real-time synchronization ensures all team members have up-to-date information.
@@ -112,17 +111,17 @@ Key Features:
 
 This project demonstrates full-stack development capabilities including database design, real-time communication, and responsive UI development.`,
     role: 'Full-Stack Developer',
-    year: 2024,
-    techStack: ['React', 'TypeScript', 'PostgreSQL', 'WebSocket'],
-    thumbnailUrl: '/images/projects/task-management-app/thumbnail.png',
+    year: 2026,
+    techStack: ['React', 'MQTT', 'Vite', 'Tailwind CSS', 'IoT'],
+    thumbnailUrl: '/images/projects/eco-therma-ai/thumbnail.png',
     demoUrl: 'https://task-management-demo.vercel.app',
-    repoUrl: 'https://github.com/adityaulyaa/task-management-app',
+    repoUrl: 'https://github.com/adityaulyaa/eco-therma-ai',
     displayOrder: 5,
   },
   {
-    slug: 'ecommerce-platform',
-    title: 'E-Commerce Platform',
-    shortDescription: 'A scalable e-commerce platform with product management, shopping cart, and payment integration.',
+    slug: 'Weather-Data-Analysis-Using-MPI',
+    title: 'Weather Data Analysis Using MPI',
+    shortDescription: 'Parallel C application using MPI to detect temperature anomalies in a 10,000-row weather dataset via mean ± 2×std dev. Rank 0 calculates global stats, scatters data with MPI_Scatterv for local process filtering, reduces anomaly counts, and metrics. Demonstrates MIMD architecture with distributed memory.',
     description: `E-Commerce Platform is a fully-featured online marketplace solution built for scalability and user experience.
 
 The platform supports product browsing, shopping cart management, secure checkout, and payment processing. It includes an admin dashboard for inventory and order management.
@@ -138,11 +137,11 @@ Features:
 
 Built with modern web technologies, this project showcases e-commerce development expertise including payment integrations, inventory management, and scalable architecture.`,
     role: 'Full-Stack Developer',
-    year: 2024,
-    techStack: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
-    thumbnailUrl: '/images/projects/ecommerce-platform/thumbnail.png',
+    year: 2026,
+    techStack: ['MPI_Scatterv', 'MPI_Bcast', 'MPI_Reduce', 'anomaly detection in C'],
+    thumbnailUrl: '/images/projects/Weather-Data-Analysis-Using-MPI/thumbnail.png',
     demoUrl: 'https://ecommerce-demo.vercel.app',
-    repoUrl: 'https://github.com/adityaulyaa/ecommerce-platform',
+    repoUrl: 'https://github.com/adityaulyaa/Weather-Data-Analysis-Using-MPI',
     displayOrder: 6,
   },
 ];

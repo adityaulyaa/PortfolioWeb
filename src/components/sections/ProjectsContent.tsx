@@ -336,10 +336,11 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
                   onClick={() => scroll('left')}
                   disabled={!canScrollLeft}
                   className="absolute left-0 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-[#2f72ff]/20 backdrop-blur border border-[#2f72ff]/50 hover:bg-[#2f72ff]/40 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center text-slate-50 group-hover:opacity-100 opacity-0 sm:opacity-100"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={!prefersReducedMotion ? { scale: 1.1 } : {}}
+                  whileTap={!prefersReducedMotion ? { scale: 0.95 } : {}}
+                  aria-label="Scroll projects left"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -354,10 +355,11 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
                   onClick={() => scroll('right')}
                   disabled={!canScrollRight}
                   className="absolute right-0 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-[#2f72ff]/20 backdrop-blur border border-[#2f72ff]/50 hover:bg-[#2f72ff]/40 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center text-slate-50 group-hover:opacity-100 opacity-0 sm:opacity-100"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={!prefersReducedMotion ? { scale: 1.1 } : {}}
+                  whileTap={!prefersReducedMotion ? { scale: 0.95 } : {}}
+                  aria-label="Scroll projects right"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
