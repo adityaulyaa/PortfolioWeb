@@ -4,13 +4,15 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Tag } from '@/components/ui/Tag';
+import { Reveal } from '@/components/ui/Reveal';
 import { ProjectListItemDto } from '@/types';
 
 interface ProjectCardProps {
   project: ProjectListItemDto;
+  index?: number;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +44,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <div ref={cardRef} className="flex-shrink-0 w-full sm:w-80 md:w-96">
-      <Link href={`/projects/${project.slug}`} className="block h-full">
+      <Link href={`/projects/${project.slug}`} className="relative z-10 block h-full">
         <div className="group h-[440px] bg-slate-900/80 backdrop-blur border border-slate-700/50 rounded-2xl p-6 shadow-lg hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-purple-500/50 flex flex-col">
           <div className="relative w-full h-48 rounded-xl overflow-hidden border border-slate-700 bg-slate-800 flex-shrink-0">
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent z-10 pointer-events-none" />
@@ -56,29 +58,35 @@ export function ProjectCard({ project }: ProjectCardProps) {
             />
           </div>
 
-          <h3 className="mt-4 text-lg sm:text-xl font-bold text-slate-50 line-clamp-2 group-hover:text-purple-400 transition-colors flex-shrink-0 leading-tight">
-            {project.title}
-          </h3>
+          <Reveal delay={0.1 + index * 0.1} duration={0.5} yOffset={20} once={false} amount={0.3}>
+            <h3 className="mt-4 text-lg sm:text-xl font-bold text-slate-50 line-clamp-2 group-hover:text-purple-400 transition-colors flex-shrink-0 leading-tight">
+              {project.title}
+            </h3>
+          </Reveal>
 
-          <p className="mt-2 text-sm text-slate-400 line-clamp-2 group-hover:text-slate-300 transition-colors flex-shrink-0 leading-relaxed">
-            {project.shortDescription}
-          </p>
+          <Reveal delay={0.2 + index * 0.1} duration={0.5} yOffset={20} once={false} amount={0.3}>
+            <p className="mt-2 text-sm text-slate-400 line-clamp-2 group-hover:text-slate-300 transition-colors flex-shrink-0 leading-relaxed">
+              {project.shortDescription}
+            </p>
+          </Reveal>
 
           <div className="mt-auto pt-4 flex-shrink-0">
-            <div className="flex flex-wrap gap-2">
-              {visibleTags.map((tech) => (
-                <Tag key={tech} size="sm">{tech}</Tag>
-              ))}
-              {hasMoreTags && !isExpanded && (
-                <button
-                  onClick={handleMoreClick}
-                  className="inline-flex items-center justify-center px-3 py-1 text-[12px] rounded-full border border-[#2b67db]/60 bg-[#071544]/40 text-[#7ba3ff] hover:bg-[#071544]/80 hover:border-[#2f72ff] hover:text-[#eef4ff] transition-all font-medium shadow-[0_0_10px_rgba(37,103,255,0.15)] hover:shadow-[0_0_16px_rgba(47,114,255,0.3)]"
-                  aria-label={`Show ${remainingCount} more technologies`}
-                >
-                  +{remainingCount} more
-                </button>
-              )}
-            </div>
+            <Reveal delay={0.3 + index * 0.1} duration={0.4} yOffset={15} once={false} amount={0.3}>
+              <div className="flex flex-wrap gap-2">
+                {visibleTags.map((tech) => (
+                  <Tag key={tech} size="sm">{tech}</Tag>
+                ))}
+                {hasMoreTags && !isExpanded && (
+                  <button
+                    onClick={handleMoreClick}
+                    className="inline-flex items-center justify-center px-3 py-1 text-[12px] rounded-full border border-[#2b67db]/60 bg-[#071544]/40 text-[#7ba3ff] hover:bg-[#071544]/80 hover:border-[#2f72ff] hover:text-[#eef4ff] transition-all font-medium shadow-[0_0_10px_rgba(37,103,255,0.15)] hover:shadow-[0_0_16px_rgba(47,114,255,0.3)]"
+                    aria-label={`Show ${remainingCount} more technologies`}
+                  >
+                    +{remainingCount} more
+                  </button>
+                )}
+              </div>
+            </Reveal>
           </div>
         </div>
       </Link>

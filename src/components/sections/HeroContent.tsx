@@ -54,7 +54,7 @@ export function HeroContent({ profile }: HeroContentProps) {
 
         {/* Content overlay */}
         <div className="relative z-10 mx-auto max-w-[1200px] px-5 sm:px-6">
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} once={false} amount={0.3}>
             <div className="relative z-20 max-w-[520px]">
               <div className="mb-4 inline-flex rounded-full border border-[#2b67db] bg-[#071544]/60 px-3 py-0.5 text-xs sm:text-sm font-semibold text-[#dbe8ff] shadow-[0_0_14px_rgba(37,103,255,0.18)]">Hi, I&apos;m</div>
               <h1 className="text-[clamp(2rem,5.2vw,4.55rem)] font-bold leading-[1.02] tracking-[-0.055em]">
@@ -79,7 +79,7 @@ export function HeroContent({ profile }: HeroContentProps) {
 
       {/* Desktop Layout: Two-column grid (unchanged) */}
       <div className="hidden lg:grid relative z-10 mx-auto min-h-[calc(100vh-56px)] max-w-[1200px] grid-cols-[43%_57%] items-center gap-0 px-5 pb-0 -mt-16">
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} once={false} amount={0.3}>
           <div className="relative z-20 max-w-[520px] -mt-3">
             <div className="mb-4 inline-flex rounded-full border border-[#2b67db] bg-[#071544]/60 px-3 py-0.5 text-xs sm:text-sm font-semibold text-[#dbe8ff] shadow-[0_0_14px_rgba(37,103,255,0.18)]">Hi, I&apos;m</div>
             <h1 className="text-[clamp(2rem,5.2vw,4.55rem)] font-bold leading-[1.02] tracking-[-0.055em]">
@@ -100,7 +100,7 @@ export function HeroContent({ profile }: HeroContentProps) {
           </div>
         </Reveal>
 
-        <Reveal delay={0.2}>
+        <Reveal delay={0.2} once={false} amount={0.3}>
           <div className="relative flex min-h-[calc(100vh-56px)] items-end justify-end overflow-hidden">
             <div className="relative mb-0 w-full max-w-[650px]">
               {/* Handwriting decoration */}
